@@ -1,64 +1,85 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  FileText,
-  TrendingDown,
-  BarChart3,
-  Shield,
-  Building2,
-  Landmark,
+  Smartphone,
+  ShieldCheck,
+  FileSpreadsheet,
+  Filter,
+  Clock,
+  Lock,
 } from "lucide-react";
+import { useRef } from "react";
 
 const features = [
   {
-    icon: FileText,
-    title: "Invoicing & Billing",
-    description: "Generate professional invoices in BDT, send via email or SMS, and track payments automatically.",
+    icon: Smartphone,
+    title: "Auto SMS Capture",
+    description: "LenDen runs silently on your Android phone. The moment a transaction SMS arrives — bKash, Nagad, Rocket, or your bank — it's automatically captured and logged.",
   },
   {
-    icon: TrendingDown,
-    title: "Expense Tracking",
-    description: "Categorize expenses, scan receipts, and monitor cash flow across all your business operations.",
+    icon: Filter,
+    title: "SmartFilter Technology",
+    description: "Our SmartFilter reads each message before capturing it. Personal conversations, OTP codes, and verification messages are blocked immediately.",
   },
   {
-    icon: BarChart3,
-    title: "Financial Reports",
-    description: "Real-time P&L, balance sheets, and custom dashboards to make data-driven decisions.",
+    icon: FileSpreadsheet,
+    title: "CSV Export & Reports",
+    description: "Export clean, organised CSV files saving you at least 60 hours a month of manual work and eliminating human error completely.",
   },
   {
-    icon: Shield,
-    title: "Tax Compliance",
-    description: "Automated VAT & AIT calculations aligned with NBR regulations. Stay compliant effortlessly.",
+    icon: ShieldCheck,
+    title: "Zero Discrepancy",
+    description: "No possibility of discrepancy — every transaction from every wallet and bank account is captured with 100% accuracy. No missing records.",
   },
   {
-    icon: Building2,
-    title: "Multi-branch Support",
-    description: "Manage multiple locations, warehouses, or outlets from a single unified dashboard.",
+    icon: Clock,
+    title: "Instant Dashboard",
+    description: "By the time your accountant opens the dashboard, every transaction is already there — sorted, categorised, and exportable. No manual entry needed.",
   },
   {
-    icon: Landmark,
-    title: "Bank Reconciliation",
-    description: "Connect with major Bangladeshi banks for automatic transaction matching and reconciliation.",
+    icon: Lock,
+    title: "Privacy First",
+    description: "LenDen never sees your personal messages. Only financial transactions get through SmartFilter — no privacy risk whatsoever.",
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, rotateX: 5 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
+    },
+  }),
+};
+
 const Features = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const headingY = useTransform(scrollYProgress, [0, 0.3], [60, 0]);
+  const headingOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+
   return (
-    <section id="features" className="py-24">
+    <section id="features" className="py-24" ref={sectionRef}>
       <div className="container px-4 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          style={{ y: headingY, opacity: headingOpacity }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Features</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">Why LenDen?</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Everything You Need to
+            Simplify Your
             <br />
-            <span className="gradient-text">Run Your Finances</span>
+            <span className="gradient-text">Financial Logging</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            From invoicing to tax compliance, FinLog covers every aspect of business accounting in Bangladesh.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            LenDen simplifies logging financial records and makes it easier for you to calculate and record for your business without the human error. Logging transactions meant days of manual work, a paid assistant, and still missing entries. Now it happens automatically.
           </p>
         </motion.div>
 
@@ -66,10 +87,12 @@ const Features = () => {
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
               className="glass-card rounded-xl p-6 group hover:border-primary/30 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 group-hover:neon-glow transition-all duration-300">

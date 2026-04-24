@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
     name: "Starter",
-    price: "৳1,499",
+    price: "৳999",
     period: "/month",
-    description: "Perfect for small businesses and startups",
+    description: "Perfect for small businesses and personal use",
     features: [
       "Up to 500 transactions/month",
-      "Basic invoicing",
-      "Expense tracking",
-      "1 user",
+      "Auto SMS capture",
+      "SmartFilter technology",
+      "1 device",
       "Email support",
     ],
     cta: "Start Free Trial",
@@ -20,17 +21,17 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "৳3,999",
+    price: "৳2,499",
     period: "/month",
     description: "For growing businesses that need more power",
     features: [
       "Unlimited transactions",
-      "Advanced invoicing & billing",
-      "VAT & AIT automation",
-      "Up to 10 users",
-      "Multi-branch support",
-      "Bank reconciliation",
+      "Multi-device support",
+      "CSV export & reports",
+      "Up to 5 users",
+      "Dashboard analytics",
       "Priority support",
+      "Bank integration",
     ],
     cta: "Start Free Trial",
     popular: true,
@@ -42,10 +43,10 @@ const plans = [
     description: "For large organizations with complex needs",
     features: [
       "Everything in Professional",
-      "Unlimited users & branches",
+      "Unlimited users & devices",
       "Custom integrations",
       "Dedicated account manager",
-      "On-premise deployment option",
+      "API access",
       "SLA guarantee",
       "24/7 phone support",
     ],
@@ -59,9 +60,10 @@ const Pricing = () => {
     <section id="pricing" className="py-24 bg-secondary/30">
       <div className="container px-4 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase">Pricing</span>
@@ -71,7 +73,7 @@ const Pricing = () => {
             <span className="gradient-text">Pricing in BDT</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            No hidden fees. Start free for 14 days, no credit card required.
+            Pay only a fraction of what you'd pay employees. No hidden fees. Start free for 14 days.
           </p>
         </motion.div>
 
@@ -79,10 +81,16 @@ const Pricing = () => {
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.15,
+                type: "spring",
+                stiffness: 80,
+              }}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
               className={`glass-card rounded-xl p-6 relative flex flex-col ${
                 plan.popular ? "border-primary/50 neon-glow" : ""
               }`}
@@ -117,6 +125,21 @@ const Pricing = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-10"
+        >
+          <Link
+            to="/pricing"
+            className="text-primary hover:text-primary/80 transition-colors text-sm font-medium font-display underline underline-offset-4"
+          >
+            View detailed pricing comparison →
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

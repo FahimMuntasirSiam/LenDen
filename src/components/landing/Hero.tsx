@@ -1,25 +1,35 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Smartphone, Shield, FileSpreadsheet } from "lucide-react";
+import { useRef } from "react";
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neon-purple/10 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-      </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[200px]" />
+      </motion.div>
 
-      <div className="container px-4 md:px-8 relative z-10">
+      <motion.div className="container px-4 md:px-8 relative z-10" style={{ opacity }}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <span className="inline-block px-4 py-1.5 text-xs font-medium rounded-full border border-primary/30 text-primary mb-6 glass-card">
-              🇧🇩 Built for Bangladeshi Businesses
+              🇧🇩 Your Deshi Accountant
             </span>
           </motion.div>
 
@@ -29,9 +39,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6"
           >
-            Smart Accounting
+            LenDen is Your
             <br />
-            <span className="gradient-text neon-text">for Growing Businesses</span>
+            <span className="gradient-text neon-text">Accountant</span>
           </motion.h1>
 
           <motion.p
@@ -40,7 +50,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Automate invoicing, track expenses, and stay VAT/AIT compliant — all in one powerful platform designed for Bangladesh.
+            Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh.
           </motion.p>
 
           <motion.div
@@ -57,49 +67,61 @@ const Hero = () => {
               variant="outline"
               className="font-display font-semibold text-base px-8 gap-2 border-border hover:border-primary/50"
             >
-              <Play size={18} /> Watch Demo
+              Learn More
             </Button>
           </motion.div>
 
-          {/* Dashboard mockup */}
+          {/* Key value props */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="mt-16 relative"
+            transition={{ duration: 0.8, delay: 0.65 }}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto"
           >
-            <div className="glass-card rounded-xl p-1 neon-glow">
-              <div className="bg-card rounded-lg p-6 md:p-8">
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {[
-                    { label: "Total Revenue", value: "৳12.4M", change: "+18.2%" },
-                    { label: "Expenses", value: "৳3.8M", change: "-5.1%" },
-                    { label: "Net Profit", value: "৳8.6M", change: "+24.7%" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="glass-card rounded-lg p-4 text-left">
-                      <p className="text-xs text-muted-foreground mb-1">{stat.label}</p>
-                      <p className="font-display text-lg md:text-2xl font-bold text-foreground">{stat.value}</p>
-                      <p className={`text-xs font-medium ${stat.change.startsWith("+") ? "text-primary" : "text-destructive"}`}>
-                        {stat.change}
-                      </p>
-                    </div>
-                  ))}
+            {[
+              {
+                icon: Smartphone,
+                title: "Auto-Capture",
+                desc: "LenDen keeps record of your transactions automatically",
+              },
+              {
+                icon: Shield,
+                title: "Zero Discrepancy",
+                desc: "Less worries for security — no possibility of discrepancy",
+              },
+              {
+                icon: FileSpreadsheet,
+                title: "CSV Export",
+                desc: "Exports CSV, saving you 60+ hours/month of manual work",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 + i * 0.12 }}
+                className="glass-card rounded-xl p-5 text-left group hover:border-primary/30 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-3 group-hover:neon-glow transition-all duration-300">
+                  <item.icon size={20} className="text-primary-foreground" />
                 </div>
-                {/* Chart placeholder */}
-                <div className="h-32 md:h-48 rounded-lg bg-secondary/50 flex items-end px-4 pb-4 gap-2">
-                  {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85, 75, 100].map((h, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 rounded-t gradient-primary opacity-70"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+                <h3 className="font-display text-sm font-semibold text-foreground mb-1">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
+
+          {/* Pay fraction tag */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="mt-8 text-sm text-muted-foreground"
+          >
+            Pay only a fraction of what you'd pay employees — <span className="text-primary font-medium">LenDen does it better.</span>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
