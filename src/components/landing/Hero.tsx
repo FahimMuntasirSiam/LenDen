@@ -41,7 +41,7 @@ const Hero = () => {
           >
             LenDen is Your
             <br />
-            <span className="gradient-text neon-text">Accountant</span>
+            <span className="gradient-text neon-text">Deshi Accountant</span>
           </motion.h1>
 
           <motion.p
@@ -92,7 +92,7 @@ const Hero = () => {
               {
                 icon: FileSpreadsheet,
                 title: "CSV Export",
-                desc: "Exports CSV, saving you 60+ hours/month of manual work",
+                desc: "Exports CSV, saving you 20+ hours/month of manual work",
               },
             ].map((item, i) => (
               <motion.div

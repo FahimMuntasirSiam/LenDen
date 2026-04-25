@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "60+", label: "Hours Saved per Month" },
+  { value: "20+", label: "Hours Saved per Month" },
   { value: "0", label: "Missing Transactions" },
   { value: "Instant", label: "Monthly Reports" },
   { value: "100%", label: "Accuracy Guaranteed" },

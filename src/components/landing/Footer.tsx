@@ -37,7 +37,7 @@ const Footer = () => {
               <span className="text-foreground">Den</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-              Your deshi accountant. Automatic transaction logging for Bangladesh.
+              LenDen is Your Deshi Accountant. Automatic transaction logging for Bangladesh.
             </p>
           </div>
 

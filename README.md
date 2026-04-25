@@ -1,6 +1,6 @@
 # LenDen — Your Deshi Accountant
 
-LenDen automatically captures, parses, and logs your financial transactions from bKash, Nagad, Rocket, and banks. Built for Bangladeshi businesses.
+LenDen — Your Deshi Accountant automatically captures, parses, and logs your financial transactions from bKash, Nagad, Rocket, and banks. Built for Bangladeshi businesses.
 
 ## Tech Stack
 

@@ -8,28 +8,20 @@ import {
 
 const faqs = [
   {
-    q: "How does LenDen capture transactions?",
-    a: "LenDen runs silently in the background on your Android phone. The moment a transaction SMS arrives from bKash, Nagad, Rocket, or your bank, it's automatically captured, parsed, and logged to your dashboard in seconds.",
+    q: "What if my device or phone is offline?",
+    a: "TracKash will sync the sms when your device or internet comes back online.",
   },
   {
-    q: "What about my privacy? Does LenDen read all my messages?",
-    a: "Absolutely not. Our SmartFilter technology reads each message before capturing it. Personal conversations, OTP codes, and verification messages are blocked immediately — LenDen never sees them. Only financial transactions get through.",
+    q: "Can I choose to export filtered data like only bKash or only bank transactions?",
+    a: "Yes, TracKash allows filtered CSV export of transactions for each payment methods and custom dates.",
   },
   {
-    q: "Which mobile banking services does LenDen support?",
-    a: "LenDen supports bKash, Nagad, Rocket, and major Bangladeshi banks including Dutch-Bangla, BRAC Bank, City Bank, Eastern Bank, and more.",
+    q: "Why do I need to upload my bKash statement?",
+    a: "Sent money SMS doesn't appear except in statements. TracKash can parse the statement and import all the transactions into the dashboard.",
   },
   {
-    q: "Can I export my data?",
-    a: "Yes! LenDen exports clean CSV files for you, saving you at least 60 hours a month of manual work and eliminating human error completely.",
-  },
-  {
-    q: "Is there a free trial available?",
-    a: "Yes, all plans come with a 14-day free trial. No credit card required. You can explore all features before committing.",
-  },
-  {
-    q: "Do you offer support in Bengali?",
-    a: "Yes! Our platform interface and customer support are available in both Bengali and English to serve businesses across Bangladesh comfortably.",
+    q: "For how long does TracKash keep my data?",
+    a: "Clients can request data of their business for up to 7 months in TracKash before the log is cleared.",
   },
 ];
 
