@@ -85,7 +85,6 @@ const plans = [
 
 const comparisonData = [
   { metric: "Time logging transactions", without: "20 hours/month", with: "0 hours" },
-  { metric: "Sessions of manual work", without: "8 per month", with: "0" },
   { metric: "Missing transactions", without: "Inevitable", with: "None" },
   { metric: "Time to get monthly report", without: "Days", with: "Instant" },
   { metric: "Hiring an assistant", without: "৳15,000+/month", with: "From ৳999/month" },
