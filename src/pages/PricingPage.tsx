@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, X, ArrowRight, Zap, Building2, Rocket } from "lucide-react";
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
+import Navbar from "../components/landing/Navbar";
+import Footer from "../components/landing/Footer";
 import { useRef } from "react";
 
 const plans = [
