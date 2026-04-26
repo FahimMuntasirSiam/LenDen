@@ -23,15 +23,6 @@ const Hero = () => {
 
       <motion.div className="container px-4 md:px-8 relative z-10" style={{ opacity }}>
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <span className="inline-block px-4 py-1.5 text-xs font-medium rounded-full border border-primary/30 text-primary mb-6 glass-card">
-              🇧🇩 Your Deshi Accountant
-            </span>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

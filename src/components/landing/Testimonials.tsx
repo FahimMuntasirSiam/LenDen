@@ -3,15 +3,15 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Rafiqul Islam",
-    role: "CEO, Dhaka Textiles Ltd.",
-    quote: "LenDen transformed how we manage our multi-branch accounting. The automatic SMS capture alone saves us 20+ hours every month.",
+    name: "Woasif Karim",
+    role: "OneSky",
+    quote: "LenDen has saved my life. My business. It has given me the motivation to do more pullups like the people behind LenDen. They inspired me in other ways than just automating my financial logging work. I now have time to take peptides.",
     rating: 5,
   },
   {
-    name: "Nasreen Akhter",
-    role: "Founder, GreenLeaf Agro",
-    quote: "As a growing agribusiness, we needed something simple yet powerful. LenDen's automatic transaction logging and CSV export is exactly what we needed.",
+    name: "Ibteda Ali Swianto",
+    role: "Numorph",
+    quote: "People have been quoting very low for services rendered by numorph. There were too many tokais in BD and they all wanted AI videos of the lowest quality. To track 1tk transactions from all these lowlives my precious time was wasted. LenDen covered it all for me. They kept record of all these transactions for me and even sent these tokai customers spam mails because they also have their number as data because I paid them a million dollars",
     rating: 5,
   },
   {
