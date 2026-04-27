@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const plans = [
   {
     name: "Starter",
-    price: "৳999",
+    price: "৳1,500",
     period: "/month",
     description: "Perfect for small businesses and personal use",
     features: [
@@ -16,12 +16,12 @@ const plans = [
       "1 device",
       "Email support",
     ],
-    cta: "Start Free Trial",
+    cta: "Get Started — It's Simple",
     popular: false,
   },
   {
     name: "Professional",
-    price: "৳2,499",
+    price: "৳2,500",
     period: "/month",
     description: "For growing businesses that need more power",
     features: [
@@ -33,13 +33,13 @@ const plans = [
       "Priority support",
       "Bank integration",
     ],
-    cta: "Start Free Trial",
+    cta: "Get Started — It's Simple",
     popular: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
-    period: "",
+    price: "৳3,500",
+    period: "/month",
     description: "For large organizations with complex needs",
     features: [
       "Everything in Professional",
@@ -50,7 +50,7 @@ const plans = [
       "SLA guarantee",
       "24/7 phone support",
     ],
-    cta: "Contact Sales",
+    cta: "Get Started — It's Simple",
     popular: false,
   },
 ];
@@ -126,20 +126,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-10"
-        >
-          <Link
-            to="/pricing"
-            className="text-primary hover:text-primary/80 transition-colors text-sm font-medium font-display underline underline-offset-4"
-          >
-            View detailed pricing comparison →
-          </Link>
-        </motion.div>
+
       </div>
     </section>
   );

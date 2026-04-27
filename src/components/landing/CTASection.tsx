@@ -25,7 +25,7 @@ const CTASection = () => {
             Join Bangladeshi businesses already using LenDen. Start your free trial today — no credit card required.
           </p>
           <Button size="lg" className="neon-glow font-display font-semibold text-base px-10 gap-2">
-            Get Started Free <ArrowRight size={18} />
+            Get Started — It's Simple <ArrowRight size={18} />
           </Button>
         </motion.div>
       </div>

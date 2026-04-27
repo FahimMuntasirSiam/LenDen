@@ -7,7 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { label: "Features", href: "/#features" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -62,10 +62,8 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <Button size="sm" className="neon-glow font-display font-semibold">
-            Get Started
-          </Button>
         </div>
+
 
         {/* Mobile toggle */}
         <button
@@ -107,10 +105,8 @@ const Navbar = () => {
                   </Link>
                 )
               )}
-              <Button size="sm" className="neon-glow font-display font-semibold w-full">
-                Get Started
-              </Button>
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>

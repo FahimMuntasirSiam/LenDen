@@ -51,14 +51,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="lg" className="neon-glow font-display font-semibold text-base px-8 gap-2">
-              Start Free Trial <ArrowRight size={18} />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="font-display font-semibold text-base px-8 gap-2 border-border hover:border-primary/50"
-            >
-              Learn More
+              Get Started — It's Simple <ArrowRight size={18} />
             </Button>
           </motion.div>
 

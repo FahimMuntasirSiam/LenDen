@@ -15,9 +15,9 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Kamal Hossain",
-    role: "CFO, Chittagong Shipping Co.",
-    quote: "The real-time financial dashboard gives me complete visibility. I can make decisions faster and with confidence. Highly recommended!",
+    name: "Rafiul Karim Nirjhor",
+    role: "Personal Finance",
+    quote: "Fuck LenDen. Now my wife knows my every spending; not one transaction goes missing, and she has been tracking my expenses. I have zero personal savings now that there is no chance of a discrepancy. I repeat do not get LenDen for personal use because you can't hide anything.",
     rating: 5,
   },
 ];
