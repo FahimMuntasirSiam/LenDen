@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Smartphone, Shield, FileSpreadsheet } from "lucide-react";
 import { useRef } from "react";
+import { GetStartedDialog } from "./GetStartedDialog";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -50,9 +51,11 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="neon-glow font-display font-semibold text-base px-8 gap-2">
-              Get Started — It's Simple <ArrowRight size={18} />
-            </Button>
+            <GetStartedDialog>
+              <Button size="lg" className="neon-glow font-display font-semibold text-base px-8 gap-2">
+                Get Started — It's Simple <ArrowRight size={18} />
+              </Button>
+            </GetStartedDialog>
           </motion.div>
 
           {/* Key value props */}

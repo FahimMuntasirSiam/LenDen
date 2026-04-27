@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GetStartedDialog } from "./GetStartedDialog";
 
 const plans = [
   {
@@ -114,14 +115,16 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              <Button
-                className={`w-full font-display font-semibold ${
-                  plan.popular ? "neon-glow" : ""
-                }`}
-                variant={plan.popular ? "default" : "outline"}
-              >
-                {plan.cta}
-              </Button>
+              <GetStartedDialog>
+                <Button
+                  className={`w-full font-display font-semibold ${
+                    plan.popular ? "neon-glow" : ""
+                  }`}
+                  variant={plan.popular ? "default" : "outline"}
+                >
+                  {plan.cta}
+                </Button>
+              </GetStartedDialog>
             </motion.div>
           ))}
         </div>
