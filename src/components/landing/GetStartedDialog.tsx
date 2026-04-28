@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 interface GetStartedDialogProps {
   children: React.ReactNode;
@@ -19,10 +20,29 @@ interface GetStartedDialogProps {
 export function GetStartedDialog({ children }: GetStartedDialogProps) {
   const [open, setOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We will get back to you shortly.");
-    setOpen(false);
+    try {
+      const { data, error } = await supabase
+        .from('Waitlist')
+        .insert([
+          {
+            name: (document.getElementById('name') as HTMLInputElement).value,
+            phone: (document.getElementById('phone') as HTMLInputElement).value,
+            business_type: (document.getElementById('business') as HTMLInputElement).value,
+            wallets: (document.getElementById('wallets') as HTMLInputElement).value,
+            monthly_transactions: parseInt((document.getElementById('transactions') as HTMLInputElement).value, 10),
+          },
+        ])
+        .select();
+
+      if (error) throw error;
+      toast.success("Thank you! We will get back to you shortly.");
+      setOpen(false);
+    } catch (error: any) {
+      toast.error(error.message || "Something went wrong.");
+      console.error(error);
+    }
   };
 
   return (
