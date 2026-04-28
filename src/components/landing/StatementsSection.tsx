@@ -1,7 +1,20 @@
-import { motion } from "framer-motion";
-import { CheckCircle2, FileText, ArrowRightLeft, LayoutDashboard } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
+import { useRef, useEffect } from "react";
+import { T } from "@/lib/i18n";
 
 const StatementsSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(videoRef, { once: false, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      videoRef.current?.play().catch(console.error);
+    } else {
+      videoRef.current?.pause();
+    }
+  }, [isInView]);
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background Elements */}
@@ -69,33 +82,15 @@ const StatementsSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative z-10 glass-card p-6 rounded-2xl border border-white/10 shadow-2xl">
-                <div className="space-y-4">
-                  <div className="h-12 w-full rounded-lg bg-white/5 animate-pulse flex items-center px-4 gap-3">
-                    <FileText size={18} className="text-primary/60" />
-                    <div className="h-2 w-32 bg-white/10 rounded-full" />
-                  </div>
-                  <div className="flex justify-center p-4">
-                    <motion.div
-                      animate={{ 
-                        rotate: [0, 180, 180, 0],
-                        opacity: [1, 0.8, 1]
-                      }}
-                      transition={{ 
-                        duration: 4, 
-                        repeat: Infinity,
-                        ease: "easeInOut" 
-                      }}
-                    >
-                      <ArrowRightLeft size={48} className="text-primary" />
-                    </motion.div>
-                  </div>
-                  <div className="h-40 w-full rounded-lg bg-primary/5 border border-primary/20 flex flex-col items-center justify-center gap-3">
-                    <LayoutDashboard size={40} className="text-primary/40" />
-                    <div className="h-2 w-48 bg-primary/20 rounded-full" />
-                    <div className="h-2 w-32 bg-primary/10 rounded-full" />
-                  </div>
-                </div>
+              <div className="relative z-10 glass-card p-2 rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-black/20">
+                <video
+                  ref={videoRef}
+                  src="/demo-video.mp4"
+                  className="w-full h-auto rounded-xl"
+                  muted
+                  loop
+                  playsInline
+                />
               </div>
               
               {/* Decorative Glow */}
