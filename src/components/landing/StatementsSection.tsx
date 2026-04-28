@@ -24,7 +24,7 @@ const StatementsSection = () => {
       </div>
 
       <div className="container px-4 md:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,13 +39,13 @@ const StatementsSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-6"
+              className="lg:col-span-4 space-y-6"
             >
               <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
                 Most businesses in Bangladesh track what comes in. <span className="text-destructive font-semibold">Nobody tracks what goes out.</span>
@@ -53,7 +53,7 @@ const StatementsSection = () => {
               
               <div className="p-1 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-500/30">
                 <div className="bg-background/80 backdrop-blur-xl p-8 rounded-[14px] border border-white/5">
-                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed italic">
+                  <p className="text-lg md:text-xl text-primary leading-relaxed italic drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
                     "LenDen changes that. Import your official bKash or Nagad statement and every outgoing payment instantly merges with your SMS records."
                   </p>
                 </div>
@@ -80,7 +80,7 @@ const StatementsSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              className="lg:col-span-8 relative"
             >
               <div className="relative z-10 glass-card p-2 rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-black/20">
                 <video

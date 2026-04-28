@@ -13,7 +13,7 @@ export const useLanguageStore = create<LanguageState>((set) => ({
   setLanguage: (lang) => set({ language: lang }),
 }));
 
-// Utility to get translation from MyMemory API with local storage caching
+// Utility to get translation from Lingva API with local storage caching
 const translateText = async (text: string, toLang: Language): Promise<string> => {
   if (toLang === 'en' || !text.trim()) return text; // Base language is English
 
@@ -22,15 +22,11 @@ const translateText = async (text: string, toLang: Language): Promise<string> =>
   if (cached) return cached;
 
   try {
-    const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${toLang}`);
+    const response = await fetch(`https://lingva.ml/api/v1/en/${toLang}/${encodeURIComponent(text)}`);
     const data = await response.json();
     
-    if (data && data.responseData && data.responseData.translatedText) {
-      const translated = data.responseData.translatedText;
-      // MyMemory sometimes returns quota exceeded errors in translatedText if hit too hard, let's just cache and return if it's not the exact error
-      if (translated.includes('MYMEMORY WARNING')) {
-        return text; // Fallback to English if quota exceeded
-      }
+    if (data && data.translation) {
+      const translated = data.translation;
       localStorage.setItem(cacheKey, translated);
       return translated;
     }
