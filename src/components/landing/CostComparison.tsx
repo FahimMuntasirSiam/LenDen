@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { T } from "@/lib/i18n";
 
 const comparisonData = [
   { metric: "Time logging transactions", without: "20 hours/month", with: "0 hours" },
@@ -17,14 +18,14 @@ const CostComparison = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">The Real Cost</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>The Real Cost</T></span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            See What Manual Logging
+            <T>See What Manual Logging</T>
             <br />
-            <span className="gradient-text">Is Really Costing You</span>
+            <span className="gradient-text"><T>Is Really Costing You</T></span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            An ISP with 4,000 monthly transactions spends:
+            <T>An ISP with 4,000 monthly transactions spends:</T>
           </p>
         </motion.div>
 
@@ -39,10 +40,10 @@ const CostComparison = () => {
           <div className="grid grid-cols-3 gap-0 border-b border-border/50">
             <div className="p-4 md:p-6" />
             <div className="p-4 md:p-6 text-center border-l border-border/50">
-              <p className="font-display text-sm md:text-base font-semibold text-destructive">Without LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-destructive"><T>Without</T> LenDen</p>
             </div>
             <div className="p-4 md:p-6 text-center border-l border-border/50 gradient-primary">
-              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">With LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground"><T>With</T> LenDen</p>
             </div>
           </div>
 
@@ -57,13 +58,13 @@ const CostComparison = () => {
               className={`grid grid-cols-3 gap-0 ${i < comparisonData.length - 1 ? "border-b border-border/30" : ""}`}
             >
               <div className="p-4 md:p-6 flex items-center">
-                <p className="text-sm md:text-base text-foreground font-medium">{row.metric}</p>
+                <p className="text-sm md:text-base text-foreground font-medium"><T>{row.metric}</T></p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30">
-                <p className="text-sm md:text-base text-destructive/80 font-medium">{row.without}</p>
+                <p className="text-sm md:text-base text-destructive/80 font-medium"><T>{row.without}</T></p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30 bg-primary/5">
-                <p className="text-sm md:text-base text-primary font-bold">{row.with}</p>
+                <p className="text-sm md:text-base text-primary font-bold"><T>{row.with}</T></p>
               </div>
             </motion.div>
           ))}
@@ -76,7 +77,7 @@ const CostComparison = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-10 text-muted-foreground max-w-2xl mx-auto italic text-sm md:text-base"
         >
-          "That's half a working week your employee spends copying SMS messages into a spreadsheet. <span className="text-primary font-medium not-italic">LenDen does it the moment each transaction arrives.</span>"
+          "<T>That's half a working week your employee spends copying SMS messages into a spreadsheet.</T> <span className="text-primary font-medium not-italic">LenDen <T>does it the moment each transaction arrives.</T></span>"
         </motion.p>
       </div>
     </section>

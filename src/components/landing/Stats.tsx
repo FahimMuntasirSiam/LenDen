@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { T } from "@/lib/i18n";
 
 const stats = [
   { value: "20+", label: "Hours Saved per Month" },
@@ -22,9 +23,9 @@ const Stats = () => {
               className="text-center"
             >
               <p className="font-display text-3xl md:text-4xl font-bold gradient-text mb-2">
-                {stat.value}
+                <T>{stat.value}</T>
               </p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-sm text-muted-foreground"><T>{stat.label}</T></p>
             </motion.div>
           ))}
         </div>

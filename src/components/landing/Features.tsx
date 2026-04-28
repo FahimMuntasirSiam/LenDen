@@ -8,37 +8,38 @@ import {
   Lock,
 } from "lucide-react";
 import { useRef } from "react";
+import { T } from "@/lib/i18n";
 
 const features = [
   {
     icon: Smartphone,
     title: "Auto SMS Capture",
-    description: "LenDen runs silently on your Android phone. The moment a transaction SMS arrives — bKash, Nagad, Rocket, or your bank — it's automatically captured and logged.",
+    description: <>LenDen <T>runs silently on your Android phone. The moment a transaction SMS arrives — bKash, Nagad, Rocket, or your bank — it's automatically captured and logged.</T></>,
   },
   {
     icon: Filter,
     title: "SmartFilter Technology",
-    description: "Our SmartFilter reads each message before capturing it. Personal conversations, OTP codes, and verification messages are blocked immediately.",
+    description: <><T>Our SmartFilter reads each message before capturing it. Personal conversations, OTP codes, and verification messages are blocked immediately.</T></>,
   },
   {
     icon: FileSpreadsheet,
     title: "CSV Export & Reports",
-    description: "Export clean, organised CSV files saving you at least 60 hours a month of manual work and eliminating human error completely.",
+    description: <><T>Export clean, organised CSV files saving you at least 60 hours a month of manual work and eliminating human error completely.</T></>,
   },
   {
     icon: ShieldCheck,
     title: "Zero Discrepancy",
-    description: "No possibility of discrepancy — every transaction from every wallet and bank account is captured with 100% accuracy. No missing records.",
+    description: <><T>No possibility of discrepancy — every transaction from every wallet and bank account is captured with 100% accuracy. No missing records.</T></>,
   },
   {
     icon: Clock,
     title: "Instant Dashboard",
-    description: "By the time your accountant opens the dashboard, every transaction is already there — sorted, categorised, and exportable. No manual entry needed.",
+    description: <><T>By the time your accountant opens the dashboard, every transaction is already there — sorted, categorised, and exportable. No manual entry needed.</T></>,
   },
   {
     icon: Lock,
     title: "Privacy First",
-    description: "LenDen never sees your personal messages. Only financial transactions get through SmartFilter — no privacy risk whatsoever.",
+    description: <>LenDen <T>never sees your personal messages. Only financial transactions get through SmartFilter — no privacy risk whatsoever.</T></>,
   },
 ];
 
@@ -72,14 +73,14 @@ const Features = () => {
           style={{ y: headingY, opacity: headingOpacity }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Why LenDen?</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>Why</T> LenDen?</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Simplify Your
+            <T>Simplify Your</T>
             <br />
-            <span className="gradient-text">Financial Logging</span>
+            <span className="gradient-text"><T>Financial Logging</T></span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            LenDen simplifies logging financial records and makes it easier for you to calculate and record for your business without the human error. Logging transactions meant days of manual work, a paid assistant, and still missing entries. Now it happens automatically.
+            LenDen <T>simplifies logging financial records and makes it easier for you to calculate and record for your business without the human error. Logging transactions meant days of manual work, a paid assistant, and still missing entries. Now it happens automatically.</T>
           </p>
         </motion.div>
 
@@ -99,7 +100,7 @@ const Features = () => {
                 <feature.icon size={24} className="text-primary-foreground" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2 text-foreground">
-                {feature.title}
+                <T>{feature.title}</T>
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {feature.description}

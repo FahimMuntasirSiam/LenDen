@@ -5,23 +5,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { T } from "@/lib/i18n";
 
 const faqs = [
   {
     q: "What if my device or phone is offline?",
-    a: "TracKash will sync the sms when your device or internet comes back online.",
+    a: <>LenDen <T>will sync the sms when your device or internet comes back online.</T></>,
   },
   {
     q: "Can I choose to export filtered data like only bKash or only bank transactions?",
-    a: "Yes, TracKash allows filtered CSV export of transactions for each payment methods and custom dates.",
+    a: <><T>Yes,</T> LenDen <T>allows filtered CSV export of transactions for each payment methods and custom dates.</T></>,
   },
   {
     q: "Why do I need to upload my bKash statement?",
-    a: "Sent money SMS doesn't appear except in statements. TracKash can parse the statement and import all the transactions into the dashboard.",
+    a: <><T>Sent money SMS doesn't appear except in statements.</T> LenDen <T>can parse the statement and import all the transactions into the dashboard.</T></>,
   },
   {
-    q: "For how long does TracKash keep my data?",
-    a: "Clients can request data of their business for up to 7 months in TracKash before the log is cleared.",
+    q: "For how long does LenDen keep my data?",
+    a: <><T>Clients can request data of their business for up to 7 months in</T> LenDen <T>before the log is cleared.</T></>,
   },
 ];
 
@@ -38,9 +39,9 @@ const FAQ = () => {
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase">FAQ</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Frequently Asked
+            <T>Frequently Asked</T>
             <br />
-            <span className="gradient-text">Questions</span>
+            <span className="gradient-text"><T>Questions</T></span>
           </h2>
         </motion.div>
 
@@ -64,7 +65,7 @@ const FAQ = () => {
                   className="glass-card rounded-xl px-6 border-none"
                 >
                   <AccordionTrigger className="font-display text-sm md:text-base font-medium text-foreground hover:no-underline hover:text-primary">
-                    {faq.q}
+                    <T>{faq.q}</T>
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
                     {faq.a}

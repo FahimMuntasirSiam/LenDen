@@ -32,7 +32,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6"
           >
-            <T>LenDen is Your</T>
+            LenDen <T>is Your</T>
             <br />
             <span className="gradient-text neon-text"><T>Deshi Accountant</T></span>
           </motion.h1>
@@ -70,17 +70,17 @@ const Hero = () => {
               {
                 icon: Smartphone,
                 title: "Auto-Capture",
-                desc: "LenDen keeps record of your transactions automatically",
+                desc: <>LenDen <T>keeps record of your transactions automatically</T></>,
               },
               {
                 icon: Shield,
                 title: "Zero Discrepancy",
-                desc: "Less worries for security — no possibility of discrepancy",
+                desc: <><T>Less worries for security — no possibility of discrepancy</T></>,
               },
               {
                 icon: FileSpreadsheet,
                 title: "CSV Export",
-                desc: "Exports CSV, saving you 20+ hours/month of manual work",
+                desc: <><T>Exports CSV, saving you 20+ hours/month of manual work</T></>,
               },
             ].map((item, i) => (
               <motion.div
@@ -94,7 +94,7 @@ const Hero = () => {
                   <item.icon size={20} className="text-primary-foreground" />
                 </div>
                 <h3 className="font-display text-sm font-semibold text-foreground mb-1"><T>{item.title}</T></h3>
-                <p className="text-xs text-muted-foreground leading-relaxed"><T>{item.desc}</T></p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -106,7 +106,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-8 text-sm text-muted-foreground"
           >
-            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium"><T>LenDen does it better.</T></span>
+            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium">LenDen <T>does it better.</T></span>
           </motion.p>
         </div>
       </motion.div>

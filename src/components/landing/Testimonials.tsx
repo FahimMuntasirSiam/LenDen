@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { T } from "@/lib/i18n";
 
 const testimonials = [
   {
@@ -33,11 +34,11 @@ const Testimonials = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Testimonials</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>Testimonials</T></span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Trusted by Businesses
+            <T>Trusted by Businesses</T>
             <br />
-            <span className="gradient-text">Across Bangladesh</span>
+            <span className="gradient-text"><T>Across Bangladesh</T></span>
           </h2>
         </motion.div>
 

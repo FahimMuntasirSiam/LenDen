@@ -1,25 +1,26 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Smartphone, Filter, LayoutDashboard } from "lucide-react";
 import { useRef } from "react";
+import { T } from "@/lib/i18n";
 
 const steps = [
   {
     icon: Smartphone,
     step: "01",
     title: "Transaction Arrives",
-    description: "SMS received on your phone — from bKash, Nagad, Rocket, or your bank. LenDen runs silently in the background on your Android phone.",
+    description: <><T>SMS received on your phone — from bKash, Nagad, Rocket, or your bank.</T> LenDen <T>runs silently in the background on your Android phone.</T></>,
   },
   {
     icon: Filter,
     step: "02",
     title: "SmartFilter Runs",
-    description: "Personal & OTP messages are blocked immediately. Only financial transactions pass through. LenDen never sees your private messages.",
+    description: <><T>Personal & OTP messages are blocked immediately. Only financial transactions pass through.</T> LenDen <T>never sees your private messages.</T></>,
   },
   {
     icon: LayoutDashboard,
     step: "03",
     title: "Dashboard Updates",
-    description: "Clean, organised record ready instantly. Sorted, categorised, and exportable. By the time your accountant opens the dashboard, everything is there.",
+    description: <><T>Clean, organised record ready instantly. Sorted, categorised, and exportable. By the time your accountant opens the dashboard, everything is there.</T></>,
   },
 ];
 
@@ -41,14 +42,14 @@ const HowItWorks = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">How LenDen Works</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>How</T> LenDen <T>Works</T></span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            It Happens in
+            <T>It Happens in</T>
             <br />
-            <span className="gradient-text">Three Simple Steps</span>
+            <span className="gradient-text"><T>Three Simple Steps</T></span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            LenDen runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds.
+            LenDen <T>runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds.</T>
           </p>
         </motion.div>
 
@@ -84,7 +85,7 @@ const HowItWorks = () => {
               </motion.div>
               <span className="font-display text-xs font-bold text-primary tracking-widest">{step.step}</span>
               <h3 className="font-display text-xl font-semibold mt-2 mb-3 text-foreground">
-                {step.title}
+                <T>{step.title}</T>
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
                 {step.description}

@@ -32,10 +32,10 @@ const StatementsSection = () => {
             transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
-            <span className="text-primary text-sm font-medium tracking-wider uppercase">The Complete View</span>
+            <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>The Complete View</T></span>
             <h2 className="font-display text-4xl md:text-6xl font-bold mt-3 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-primary/80">
-              The Full Picture, <br />
-              <span className="gradient-text">Finally Revealed</span>
+              <T>The Full Picture,</T> <br />
+              <span className="gradient-text"><T>Finally Revealed</T></span>
             </h2>
           </motion.div>
 
@@ -48,13 +48,13 @@ const StatementsSection = () => {
               className="lg:col-span-4 space-y-6"
             >
               <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
-                Most businesses in Bangladesh track what comes in. <span className="text-destructive font-semibold">Nobody tracks what goes out.</span>
+                <T>Most businesses in Bangladesh track what comes in.</T> <span className="text-destructive font-semibold"><T>Nobody tracks what goes out.</T></span>
               </p>
               
               <div className="p-1 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-500/30">
                 <div className="bg-background/80 backdrop-blur-xl p-8 rounded-[14px] border border-white/5">
                   <p className="text-lg md:text-xl text-primary leading-relaxed italic drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
-                    "LenDen changes that. Import your official bKash or Nagad statement and every outgoing payment instantly merges with your SMS records."
+                    "LenDen <T>changes that. Import your official bKash or Nagad statement and every outgoing payment instantly merges with your SMS records.</T>"
                   </p>
                 </div>
               </div>
@@ -64,13 +64,13 @@ const StatementsSection = () => {
                   <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     <CheckCircle2 size={16} className="text-primary" />
                   </div>
-                  <p className="text-foreground font-medium">One dashboard. Both directions.</p>
+                  <p className="text-foreground font-medium"><T>One dashboard. Both directions.</T></p>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                     <CheckCircle2 size={16} className="text-primary" />
                   </div>
-                  <p className="text-foreground font-medium">Finally, the full picture.</p>
+                  <p className="text-foreground font-medium"><T>Finally, the full picture.</T></p>
                 </div>
               </div>
             </motion.div>

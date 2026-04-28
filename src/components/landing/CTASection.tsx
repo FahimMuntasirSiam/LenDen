@@ -24,7 +24,7 @@ const CTASection = () => {
             <span className="gradient-text"><T>Manual Logging?</T></span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            <T>Join Bangladeshi businesses already using LenDen. Start your free trial today — no credit card required.</T>
+            <T>Join Bangladeshi businesses already using</T> LenDen. <T>Start your free trial today — no credit card required.</T>
           </p>
           <GetStartedDialog>
             <Button size="lg" className="neon-glow font-display font-semibold text-base px-10 gap-2">
