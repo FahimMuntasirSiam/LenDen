@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Smartphone, Shield, FileSpreadsheet } from "lucide-react";
 import { useRef } from "react";
 import { GetStartedDialog } from "./GetStartedDialog";
+import { T } from "@/lib/i18n";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -31,9 +32,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6"
           >
-            LenDen is Your
+            <T>LenDen is Your</T>
             <br />
-            <span className="gradient-text neon-text">Deshi Accountant</span>
+            <span className="gradient-text neon-text"><T>Deshi Accountant</T></span>
           </motion.h1>
 
           <motion.p
@@ -42,7 +43,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh.
+            <T>Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh.</T>
           </motion.p>
 
           <motion.div
@@ -53,7 +54,7 @@ const Hero = () => {
           >
             <GetStartedDialog>
               <Button size="lg" className="neon-glow font-display font-semibold text-base px-8 gap-2">
-                Get Started — It's Simple <ArrowRight size={18} />
+                <T>Get Started — It's Simple</T> <ArrowRight size={18} />
               </Button>
             </GetStartedDialog>
           </motion.div>
@@ -92,8 +93,8 @@ const Hero = () => {
                 <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-3 group-hover:neon-glow transition-all duration-300">
                   <item.icon size={20} className="text-primary-foreground" />
                 </div>
-                <h3 className="font-display text-sm font-semibold text-foreground mb-1">{item.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h3 className="font-display text-sm font-semibold text-foreground mb-1"><T>{item.title}</T></h3>
+                <p className="text-xs text-muted-foreground leading-relaxed"><T>{item.desc}</T></p>
               </motion.div>
             ))}
           </motion.div>
@@ -105,7 +106,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-8 text-sm text-muted-foreground"
           >
-            Pay only a fraction of what you'd pay employees — <span className="text-primary font-medium">LenDen does it better.</span>
+            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium"><T>LenDen does it better.</T></span>
           </motion.p>
         </div>
       </motion.div>

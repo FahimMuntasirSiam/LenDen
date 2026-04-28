@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { GetStartedDialog } from "./GetStartedDialog";
+import { T } from "@/lib/i18n";
 
 const plans = [
   {
@@ -63,14 +64,14 @@ const Pricing = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Pricing</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>Pricing</T></span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            Simple, Transparent
+            <T>Simple, Transparent</T>
             <br />
-            <span className="gradient-text">Pricing in BDT</span>
+            <span className="gradient-text"><T>Pricing in BDT</T></span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Pay only a fraction of what you'd pay employees. No hidden fees. Start free for 14 days.
+            <T>Pay only a fraction of what you'd pay employees. No hidden fees. Start free for 14 days.</T>
           </p>
         </motion.div>
 
@@ -94,20 +95,20 @@ const Pricing = () => {
             >
               {plan.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-xs font-bold font-display gradient-primary text-primary-foreground rounded-full">
-                  Most Popular
+                  <T>Most Popular</T>
                 </span>
               )}
-              <h3 className="font-display text-lg font-semibold text-foreground">{plan.name}</h3>
+              <h3 className="font-display text-lg font-semibold text-foreground"><T>{plan.name}</T></h3>
               <div className="mt-4 mb-2">
                 <span className="font-display text-4xl font-bold text-foreground">{plan.price}</span>
-                <span className="text-sm text-muted-foreground">{plan.period}</span>
+                <span className="text-sm text-muted-foreground"><T>{plan.period}</T></span>
               </div>
-              <p className="text-sm text-muted-foreground mb-6">{plan.description}</p>
+              <p className="text-sm text-muted-foreground mb-6"><T>{plan.description}</T></p>
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <Check size={16} className="text-primary mt-0.5 shrink-0" />
-                    {f}
+                    <T>{f}</T>
                   </li>
                 ))}
               </ul>
@@ -118,7 +119,7 @@ const Pricing = () => {
                   }`}
                   variant={plan.popular ? "default" : "outline"}
                 >
-                  {plan.cta}
+                  <T>{plan.cta}</T>
                 </Button>
               </GetStartedDialog>
             </motion.div>

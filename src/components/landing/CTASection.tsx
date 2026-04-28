@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { GetStartedDialog } from "./GetStartedDialog";
+import { T } from "@/lib/i18n";
 
 const CTASection = () => {
   return (
@@ -18,16 +19,16 @@ const CTASection = () => {
           className="glass-card rounded-2xl p-10 md:p-16 text-center neon-glow"
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Ready to Stop
+            <T>Ready to Stop</T>
             <br />
-            <span className="gradient-text">Manual Logging?</span>
+            <span className="gradient-text"><T>Manual Logging?</T></span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            Join Bangladeshi businesses already using LenDen. Start your free trial today — no credit card required.
+            <T>Join Bangladeshi businesses already using LenDen. Start your free trial today — no credit card required.</T>
           </p>
           <GetStartedDialog>
             <Button size="lg" className="neon-glow font-display font-semibold text-base px-10 gap-2">
-              Get Started — It's Simple <ArrowRight size={18} />
+              <T>Get Started — It's Simple</T> <ArrowRight size={18} />
             </Button>
           </GetStartedDialog>
         </motion.div>
