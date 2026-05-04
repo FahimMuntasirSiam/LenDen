@@ -61,6 +61,25 @@
     scroll-behavior: smooth;
   }
 
+  /* PC View Scaling - Only affects larger screens */
+  @media (min-width: 1024px) {
+    html {
+      font-size: 106.25%; /* 17px base */
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: 112.5%; /* 18px base */
+    }
+  }
+
+  @media (min-width: 1536px) {
+    html {
+      font-size: 125%; /* 20px base */
+    }
+  }
+
   body {
     @apply bg-background text-foreground font-body;
   }
