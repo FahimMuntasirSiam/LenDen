@@ -8,13 +8,16 @@ import { T } from "@/lib/i18n";
 const plans = [
   {
     name: "Starter",
+    originalPrice: "৳800",
     price: "৳500",
+    discount: "37% OFF",
     period: "/month",
     description: "Perfect for small businesses and personal use",
     features: [
       "Up to 2,000 transactions/month",
       "Auto SMS capture",
       "SmartFilter technology",
+      "Cash out tracking free (need to upload statement)",
       "1 device",
       "Email support",
     ],
@@ -23,13 +26,16 @@ const plans = [
   },
   {
     name: "Professional",
+    originalPrice: "৳1,700",
     price: "৳1,000",
+    discount: "41% OFF",
     period: "/month",
     description: "For growing businesses that need more power",
     features: [
       "Up to 5,000 transactions/month",
       "Auto SMS capture",
       "SmartFilter technology",
+      "Cash out tracking free (need to upload statement)",
       "Up to 3 devices",
       "Priority support",
     ],
@@ -38,13 +44,16 @@ const plans = [
   },
   {
     name: "Enterprise",
+    originalPrice: "৳3,000",
     price: "৳1,800",
+    discount: "40% OFF",
     period: "/month",
     description: "For large organizations with complex needs",
     features: [
       "Up to 10,000 transactions/month",
       "Auto SMS capture",
       "SmartFilter technology",
+      "Cash out tracking free (need to upload statement)",
       "Up to 5 devices",
       "24/7 phone support",
     ],
@@ -98,9 +107,15 @@ const Pricing = () => {
                   <T>Most Popular</T>
                 </span>
               )}
-              <h3 className="font-display text-lg font-semibold text-foreground"><T>{plan.name}</T></h3>
-              <div className="mt-4 mb-2">
+              <div className="flex items-center justify-between">
+                <h3 className="font-display text-lg font-semibold text-foreground"><T>{plan.name}</T></h3>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                  {plan.discount}
+                </span>
+              </div>
+              <div className="mt-4 mb-2 flex items-baseline gap-2">
                 <span className="font-display text-4xl font-bold text-foreground">{plan.price}</span>
+                <span className="text-sm text-muted-foreground line-through opacity-50">{plan.originalPrice}</span>
                 <span className="text-sm text-muted-foreground"><T>{plan.period}</T></span>
               </div>
               <p className="text-sm text-muted-foreground mb-6"><T>{plan.description}</T></p>
