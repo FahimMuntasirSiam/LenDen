@@ -11,45 +11,47 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border/50 py-16">
+    <footer className="bg-[#0d0d0d] relative pt-32 pb-12 overflow-hidden border-t border-border/5">
+      {/* Subtle top border with teal gradient */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      
       <div className="container px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mb-12">
-          <div className="col-span-1">
-            <Link to="/" className="font-display text-xl font-bold tracking-tight">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-24">
+          {/* Logo + Tagline */}
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <Link to="/" className="font-display text-2xl font-bold tracking-tight">
               <span className="gradient-text">Len</span>
               <span className="text-foreground">Den</span>
             </Link>
-            <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-xs">
+            <p className="text-sm text-muted-foreground mt-4 leading-relaxed max-w-xs">
               LenDen <T>is Your Deshi Accountant. Automatic transaction logging for Bangladesh.</T>
             </p>
           </div>
 
-          <div className="flex justify-end">
-            {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category} className="text-right">
-                <h4 className="font-display text-sm font-semibold text-foreground mb-4"><T>{category}</T></h4>
-                <ul className="space-y-2">
-                  {links.map((link) => (
-                    <li key={link.label}>
-                      {link.href.startsWith("/") && !link.href.startsWith("/#") ? (
-                        <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          <T>{link.label}</T>
-                        </Link>
-                      ) : (
-                        <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          <T>{link.label}</T>
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Legal Links Column */}
+          <div className="text-center md:text-right flex flex-col items-center md:items-end">
+            <h4 className="font-display text-xs font-bold text-primary mb-5 uppercase tracking-widest">
+              <T>Legal</T>
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {footerLinks.Legal.map((link) => (
+                <li key={link.label}>
+                  <a 
+                    href={link.href} 
+                    className="text-xs text-muted-foreground hover:text-primary transition-all duration-300 relative group"
+                  >
+                    <T>{link.label}</T>
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+        {/* Divider and Copyright */}
+        <div className="border-t border-white/5 pt-10">
+          <p className="text-xs text-muted-foreground text-center tracking-wide opacity-60">
             © 2026 LenDen. <T>All rights reserved.</T>
           </p>
         </div>
