@@ -42,6 +42,7 @@ const Navbar = () => {
             src="/lenden-crop.png" 
             alt="LenDen" 
             className="h-5 md:h-6 w-auto object-contain" 
+            style={{ filter: "invert(1) hue-rotate(180deg)" }}
           />
         </Link>
 

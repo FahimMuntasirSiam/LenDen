@@ -35,6 +35,7 @@ const Hero = () => {
               src="/lenden-crop.png" 
               alt="LenDen" 
               className="w-full max-w-[400px] sm:max-w-[600px] md:max-w-[750px] h-auto object-contain" 
+              style={{ filter: "invert(1) hue-rotate(180deg)" }}
             />
           </motion.div>
 
