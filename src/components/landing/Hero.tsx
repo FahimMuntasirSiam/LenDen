@@ -35,7 +35,7 @@ const Hero = () => {
               src="/lenden3.png" 
               alt="LenDen" 
               className="h-[600px] sm:h-[900px] md:h-[1200px] w-auto object-contain shrink-0" 
-              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2)" }}
+              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2.5)" }}
             />
           </motion.div>
 

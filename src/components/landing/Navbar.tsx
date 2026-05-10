@@ -38,12 +38,12 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card border-b border-border/50 shadow-lg" : "bg-transparent border-b border-transparent"}`}>
       <div className="container flex items-center justify-between h-16 px-4 md:px-8">
         <Link to="/" className="flex items-center shrink-0">
-          <div className="h-8 md:h-10 flex items-center justify-center overflow-hidden">
+          <div className="h-7 md:h-8 flex items-center justify-center overflow-hidden">
             <img 
               src="/lenden4.png" 
               alt="LenDen Logo" 
-              className="h-24 md:h-32 w-auto object-contain" 
-              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2)" }}
+              className="h-14 md:h-16 w-auto object-contain" 
+              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2.5)" }}
             />
           </div>
         </Link>
