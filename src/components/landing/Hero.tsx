@@ -25,17 +25,19 @@ const Hero = () => {
 
       <motion.div className="container px-4 md:px-8 relative z-10" style={{ opacity }}>
         <div className="max-w-4xl mx-auto text-center">
-
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-display text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6"
+            className="h-[200px] sm:h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-4 md:mb-8"
           >
-            LenDen <T>is Your</T>
-            <br />
-            <span className="gradient-text neon-text"><T>Deshi Accountant</T></span>
-          </motion.h1>
+            <img 
+              src="/lenden3.png" 
+              alt="LenDen" 
+              className="h-[600px] sm:h-[900px] md:h-[1200px] w-auto object-contain shrink-0" 
+              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2)" }}
+            />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
