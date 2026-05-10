@@ -29,13 +29,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="h-[200px] sm:h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-4 md:mb-8"
+            className="flex items-center justify-center mb-6"
           >
             <img 
-              src="/lenden3.png" 
+              src="/lenden-crop.png" 
               alt="LenDen" 
-              className="h-[600px] sm:h-[900px] md:h-[1200px] w-auto object-contain shrink-0" 
-              style={{ filter: "invert(1) hue-rotate(180deg) saturate(2.5)" }}
+              className="w-full max-w-[400px] sm:max-w-[600px] md:max-w-[750px] h-auto object-contain" 
             />
           </motion.div>
 
