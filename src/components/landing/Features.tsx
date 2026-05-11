@@ -86,8 +86,12 @@ const Features = () => {
           style={{ y: headingY, opacity: headingOpacity }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            {language === 'en' ? "Why LenDen?" : "কেন LenDen ব্যবহার করবেন?"}
+          <span className="text-sm font-medium tracking-wider uppercase">
+            {language === 'en' ? (
+              <>Why <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span>?</>
+            ) : (
+              <>কেন <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> ব্যবহার করবেন?</>
+            )}
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4 leading-tight md:leading-snug">
             {language === 'en' ? "Powerful Features for" : "শক্তিশালী ব্যবসার জন্য"}

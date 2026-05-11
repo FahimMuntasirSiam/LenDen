@@ -62,12 +62,20 @@ const CostComparison = () => {
             <div className="p-4 md:p-6" />
             <div className="p-4 md:p-6 text-center border-l border-border/50">
               <p className="font-display text-sm md:text-base font-semibold text-destructive">
-                {language === 'en' ? "Without" : "LenDen ছাড়া"}
+                {language === 'en' ? (
+                  <>Without <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span></>
+                ) : (
+                  <><span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> ছাড়া</>
+                )}
               </p>
             </div>
             <div className="p-4 md:p-6 text-center border-l border-border/50 gradient-primary">
               <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">
-                {language === 'en' ? "With" : "LenDen সহ"}
+                {language === 'en' ? (
+                  <>With <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span></>
+                ) : (
+                  <><span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> সহ</>
+                )}
               </p>
             </div>
           </div>
@@ -106,8 +114,8 @@ const CostComparison = () => {
           {language === 'en' 
             ? "That's half a working week your employee spends copying SMS messages into a spreadsheet." 
             : "এটি আপনার কর্মচারীর কর্মসপ্তাহের অর্ধেক সময় যা তিনি স্প্রেডশিটে SMS মেসেজ কপি করতে ব্যয় করেন।"}{" "}
-          <span className="text-primary font-medium not-italic">
-            LenDen {language === 'en' ? "does it the moment each transaction arrives." : "প্রতিটি লেনদেন আসার সাথে সাথেই তা করে ফেলে।"}
+          <span className="font-medium not-italic">
+            <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> {language === 'en' ? "does it the moment each transaction arrives." : "প্রতিটি লেনদেন আসার সাথে সাথেই তা করে ফেলে।"}
           </span>
           "
         </motion.p>

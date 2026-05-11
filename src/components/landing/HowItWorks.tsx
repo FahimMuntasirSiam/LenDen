@@ -49,8 +49,12 @@ const HowItWorks = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">
-            {language === 'en' ? "How LenDen Works" : "LenDen যেভাবে কাজ করে"}
+          <span className="text-sm font-medium tracking-wider uppercase">
+            {language === 'en' ? (
+              <>How <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> Works</>
+            ) : (
+              <><span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> যেভাবে কাজ করে</>
+            )}
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4 leading-snug md:leading-normal">
             {language === 'en' ? "It Happens in" : "এটি ঘটে মাত্র"}

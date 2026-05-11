@@ -84,7 +84,7 @@ export function PreRegistrationForm({ onSuccess }: { onSuccess: () => void }) {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto">
+    <div className="w-full max-w-md mx-auto">
       {/* Progress Bar */}
       <div className="flex justify-between mb-8 relative">
         <div className="absolute top-1/2 left-0 w-full h-0.5 bg-border -translate-y-1/2 z-0" />

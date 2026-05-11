@@ -22,8 +22,8 @@ const Footer = () => {
           {/* Logo + Tagline */}
           <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <Link to="/" className="font-display text-2xl font-bold tracking-tight">
-              <span className="gradient-text">Len</span>
-              <span className="text-foreground">Den</span>
+              <span className="text-[#00C896]">Len</span>
+              <span className="text-[#FF4C4C]">Den</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed max-w-xs">
               {language === 'en' 

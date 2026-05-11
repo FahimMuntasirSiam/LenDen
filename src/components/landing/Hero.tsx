@@ -113,8 +113,8 @@ const Hero = () => {
             {language === 'en' 
               ? "Pay only a fraction of what you'd pay employees — " 
               : "কর্মচারীদের তুলনায় সামান্য খরচে — "}
-            <span className="text-primary font-medium">
-              LenDen {language === 'en' ? "does it better." : "আরও ভালো করে।"}
+            <span className="font-medium">
+              <span className="text-[#00C896]">Len</span><span className="text-[#FF4C4C]">Den</span> {language === 'en' ? "does it better." : "আরও ভালো করে।"}
             </span>
           </motion.p>
         </div>
