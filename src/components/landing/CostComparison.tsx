@@ -1,13 +1,28 @@
 import { motion } from "framer-motion";
-import { T } from "@/lib/i18n";
+import { useLanguageStore } from "@/lib/i18n";
 
-const comparisonData = [
-  { metric: "Time logging transactions", without: "20 hours/month", with: "0 hours" },
-  { metric: "Missing transactions", without: "Inevitable", with: "None" },
-  { metric: "Time to get monthly report", without: "Days", with: "Instant" },
+const getComparisonData = (lang: string) => [
+  { 
+    metric: lang === 'en' ? "Time logging transactions" : "লেনদেন লগ করার সময়", 
+    without: lang === 'en' ? "20 hours/month" : "মাসে ২০ ঘণ্টা", 
+    with: lang === 'en' ? "0 hours" : "০ ঘণ্টা" 
+  },
+  { 
+    metric: lang === 'en' ? "Missing transactions" : "হারিয়ে যাওয়া লেনদেন", 
+    without: lang === 'en' ? "Inevitable" : "অনিবার্য", 
+    with: lang === 'en' ? "None" : "একটিও না" 
+  },
+  { 
+    metric: lang === 'en' ? "Time to get monthly report" : "মাসিক রিপোর্ট পাওয়ার সময়", 
+    without: lang === 'en' ? "Days" : "কয়েক দিন", 
+    with: lang === 'en' ? "Instant" : "তাৎক্ষণিক" 
+  },
 ];
 
 const CostComparison = () => {
+  const { language } = useLanguageStore();
+  const comparisonData = getComparisonData(language);
+
   return (
     <section className="py-24">
       <div className="container px-4 md:px-8">
@@ -18,14 +33,20 @@ const CostComparison = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>The Real Cost</T></span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === 'en' ? "The Real Cost" : "আসল খরচ"}
+          </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            <T>See What Manual Logging</T>
+            {language === 'en' ? "See What Manual Logging" : "ম্যানুয়াল লগিংয়ের ফলে"}
             <br />
-            <span className="gradient-text"><T>Is Really Costing You</T></span>
+            <span className="gradient-text">
+              {language === 'en' ? "Is Really Costing You" : "আপনার কত খরচ হচ্ছে তা দেখুন"}
+            </span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            <T>An ISP with 4,000 monthly transactions spends:</T>
+            {language === 'en' 
+              ? "An ISP with 4,000 monthly transactions spends:" 
+              : "প্রতি মাসে ৪,০০০ লেনদেন সম্পন্ন একটি ISP খরচ করে:"}
           </p>
         </motion.div>
 
@@ -40,10 +61,14 @@ const CostComparison = () => {
           <div className="grid grid-cols-3 gap-0 border-b border-border/50">
             <div className="p-4 md:p-6" />
             <div className="p-4 md:p-6 text-center border-l border-border/50">
-              <p className="font-display text-sm md:text-base font-semibold text-destructive"><T>Without</T> LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-destructive">
+                {language === 'en' ? "Without" : "LenDen ছাড়া"}
+              </p>
             </div>
             <div className="p-4 md:p-6 text-center border-l border-border/50 gradient-primary">
-              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground"><T>With</T> LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">
+                {language === 'en' ? "With" : "LenDen সহ"}
+              </p>
             </div>
           </div>
 
@@ -58,13 +83,13 @@ const CostComparison = () => {
               className={`grid grid-cols-3 gap-0 ${i < comparisonData.length - 1 ? "border-b border-border/30" : ""}`}
             >
               <div className="p-4 md:p-6 flex items-center">
-                <p className="text-sm md:text-base text-foreground font-medium"><T>{row.metric}</T></p>
+                <p className="text-sm md:text-base text-foreground font-medium">{row.metric}</p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30">
-                <p className="text-sm md:text-base text-destructive/80 font-medium"><T>{row.without}</T></p>
+                <p className="text-sm md:text-base text-destructive/80 font-medium">{row.without}</p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30 bg-primary/5">
-                <p className="text-sm md:text-base text-primary font-bold"><T>{row.with}</T></p>
+                <p className="text-sm md:text-base text-primary font-bold">{row.with}</p>
               </div>
             </motion.div>
           ))}
@@ -77,7 +102,14 @@ const CostComparison = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-10 text-muted-foreground max-w-2xl mx-auto italic text-sm md:text-base"
         >
-          "<T>That's half a working week your employee spends copying SMS messages into a spreadsheet.</T> <span className="text-primary font-medium not-italic">LenDen <T>does it the moment each transaction arrives.</T></span>"
+          "
+          {language === 'en' 
+            ? "That's half a working week your employee spends copying SMS messages into a spreadsheet." 
+            : "এটি আপনার কর্মচারীর কর্মসপ্তাহের অর্ধেক সময় যা তিনি স্প্রেডশিটে SMS মেসেজ কপি করতে ব্যয় করেন।"}{" "}
+          <span className="text-primary font-medium not-italic">
+            LenDen {language === 'en' ? "does it the moment each transaction arrives." : "প্রতিটি লেনদেন আসার সাথে সাথেই তা করে ফেলে।"}
+          </span>
+          "
         </motion.p>
       </div>
     </section>

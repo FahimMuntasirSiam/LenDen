@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { create } from 'zustand';
 
 type Language = 'en' | 'bn';
@@ -13,57 +13,33 @@ export const useLanguageStore = create<LanguageState>((set) => ({
   setLanguage: (lang) => set({ language: lang }),
 }));
 
-// Utility to get translation from Lingva API with local storage caching
-const translateText = async (text: string, toLang: Language): Promise<string> => {
-  if (toLang === 'en' || !text.trim()) return text; // Base language is English
-
-  const cacheKey = `translation_${toLang}_${text}`;
-  const cached = localStorage.getItem(cacheKey);
-  if (cached) return cached;
-
-  try {
-    const response = await fetch(`https://lingva.ml/api/v1/en/${toLang}/${encodeURIComponent(text)}`);
-    const data = await response.json();
-    
-    if (data && data.translation) {
-      const translated = data.translation;
-      localStorage.setItem(cacheKey, translated);
-      return translated;
-    }
-    return text;
-  } catch (error) {
-    console.error('Translation error:', error);
-    return text; // Fallback to English on error
+export const translations = {
+  en: {
+    "Features": "Features",
+    "How It Works": "How It Works",
+    "Pricing": "Pricing",
+    "FAQ": "FAQ",
+    "Get Started — It's Simple": "Get Started — It's Simple",
+    // ... I'll add more as needed, or just use ternary in components
+  },
+  bn: {
+    "Features": "বৈশিষ্ট্যসমূহ",
+    "How It Works": "কীভাবে কাজ করে",
+    "Pricing": "মূল্য পরিকল্পনা",
+    "FAQ": "সাধারণ প্রশ্নাবলী",
+    "Get Started — It's Simple": "শুরু করুন — এটা সহজ",
   }
 };
 
 interface TProps {
-  children: string | React.ReactNode;
+  children: string;
 }
 
-// A component that translates its text children
 export const T: React.FC<TProps> = ({ children }) => {
   const { language } = useLanguageStore();
-  const [translatedText, setTranslatedText] = useState<string | React.ReactNode>(children);
+  
+  // Simple lookup for common strings, fallback to children
+  const translated = (translations[language] as any)[children] || children;
 
-  useEffect(() => {
-    // Only translate if children is a string
-    if (typeof children === 'string') {
-      let isMounted = true;
-      const getTranslation = async () => {
-        const result = await translateText(children, language);
-        if (isMounted) {
-          setTranslatedText(result);
-        }
-      };
-      getTranslation();
-      return () => {
-        isMounted = false;
-      };
-    } else {
-      setTranslatedText(children);
-    }
-  }, [children, language]);
-
-  return <>{translatedText}</>;
+  return <>{translated}</>;
 };

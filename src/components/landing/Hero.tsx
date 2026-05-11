@@ -3,10 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Smartphone, Shield, FileSpreadsheet } from "lucide-react";
 import { useRef } from "react";
 import { GetStartedDialog } from "./GetStartedDialog";
-import { T } from "@/lib/i18n";
+import { useLanguageStore, T } from "@/lib/i18n";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const { language } = useLanguageStore();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -44,7 +45,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
           >
-            <T>Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh.</T>
+            {language === 'en' 
+              ? "Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh."
+              : "আপনার ব্যবসায়িক ও ব্যক্তিগত সকল লেনদেন একটি প্ল্যাটফর্মে রেকর্ড করুন — বাংলাদেশের জন্য তৈরি।"}
           </motion.p>
 
           <motion.div
@@ -70,18 +73,18 @@ const Hero = () => {
             {[
               {
                 icon: Smartphone,
-                title: "Auto-Capture",
-                desc: <>LenDen <T>keeps record of your transactions automatically</T></>,
+                title: language === 'en' ? "Auto-Capture" : "স্বয়ংক্রিয় ক্যাপচার",
+                desc: language === 'en' ? "LenDen keeps record of your transactions automatically" : "LenDen আপনার লেনদেন স্বয়ংক্রিয়ভাবে রেকর্ড করে রাখে",
               },
               {
                 icon: Shield,
-                title: "Zero Discrepancy",
-                desc: <><T>Less worries for security — no possibility of discrepancy</T></>,
+                title: language === 'en' ? "Zero Discrepancy" : "শূন্য গরমিল",
+                desc: language === 'en' ? "Less worries for security — no possibility of discrepancy" : "নিরাপত্তায় কোনো দুশ্চিন্তা নেই — গরমিলের কোনো সুযোগ নেই",
               },
               {
                 icon: FileSpreadsheet,
-                title: "CSV Export",
-                desc: <><T>Exports CSV, saving you 20+ hours/month of manual work</T></>,
+                title: language === 'en' ? "CSV Export" : "CSV এক্সপোর্ট",
+                desc: language === 'en' ? "Exports CSV, saving you 20+ hours/month of manual work" : "CSV এক্সপোর্ট করে মাসে ২০+ ঘণ্টার ম্যানুয়াল কাজ বাঁচায়",
               },
             ].map((item, i) => (
               <motion.div
@@ -94,7 +97,7 @@ const Hero = () => {
                 <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-3 group-hover:neon-glow transition-all duration-300">
                   <item.icon size={20} className="text-primary-foreground" />
                 </div>
-                <h3 className="font-display text-sm font-semibold text-foreground mb-1"><T>{item.title}</T></h3>
+                <h3 className="font-display text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -107,7 +110,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-12 text-sm text-muted-foreground"
           >
-            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium">LenDen <T>does it better.</T></span>
+            {language === 'en' 
+              ? "Pay only a fraction of what you'd pay employees — " 
+              : "কর্মচারীদের তুলনায় সামান্য খরচে — "}
+            <span className="text-primary font-medium">
+              LenDen {language === 'en' ? "does it better." : "আরও ভালো করে।"}
+            </span>
           </motion.p>
         </div>
       </motion.div>

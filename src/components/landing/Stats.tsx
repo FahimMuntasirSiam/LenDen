@@ -1,14 +1,29 @@
 import { motion } from "framer-motion";
-import { T } from "@/lib/i18n";
+import { useLanguageStore } from "@/lib/i18n";
 
-const stats = [
-  { value: "20+", label: "Hours Saved per Month" },
-  { value: "0", label: "Missing Transactions" },
-  { value: "Instant", label: "Monthly Reports" },
-  { value: "100%", label: "Accuracy Guaranteed" },
+const getStats = (lang: string) => [
+  { 
+    value: lang === 'en' ? "20+" : "২০+", 
+    label: lang === 'en' ? "Hours Saved per Month" : "প্রতি মাসে ঘণ্টা সাশ্রয়" 
+  },
+  { 
+    value: lang === 'en' ? "0" : "০", 
+    label: lang === 'en' ? "Missing Transactions" : "গরমিল লেনদেন" 
+  },
+  { 
+    value: lang === 'en' ? "Instant" : "ইনস্ট্যান্ট", 
+    label: lang === 'en' ? "Monthly Reports" : "মাসিক রিপোর্ট" 
+  },
+  { 
+    value: lang === 'en' ? "100%" : "১০০%", 
+    label: lang === 'en' ? "Accuracy Guaranteed" : "নির্ভুলতার গ্যারান্টি" 
+  },
 ];
 
 const Stats = () => {
+  const { language } = useLanguageStore();
+  const stats = getStats(language);
+
   return (
     <section className="py-20 border-y border-border/50">
       <div className="container px-4 md:px-8">
@@ -23,9 +38,9 @@ const Stats = () => {
               className="text-center"
             >
               <p className="font-display text-3xl md:text-4xl font-bold gradient-text mb-2">
-                <T>{stat.value}</T>
+                {stat.value}
               </p>
-              <p className="text-sm text-muted-foreground"><T>{stat.label}</T></p>
+              <p className="text-sm text-muted-foreground">{stat.label}</p>
             </motion.div>
           ))}
         </div>

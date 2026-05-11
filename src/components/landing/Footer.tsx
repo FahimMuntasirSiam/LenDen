@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import { T } from "@/lib/i18n";
-
-const footerLinks = {
-  Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
-  ],
-};
+import { useLanguageStore } from "@/lib/i18n";
 
 const Footer = () => {
+  const { language } = useLanguageStore();
+
+  const footerLinks = {
+    Legal: [
+      { label: language === 'en' ? "Privacy Policy" : "গোপনীয়তা নীতি", href: "#" },
+      { label: language === 'en' ? "Terms of Service" : "সেবার শর্তাবলী", href: "#" },
+      { label: language === 'en' ? "Cookie Policy" : "কুকি নীতি", href: "#" },
+    ],
+  };
+
   return (
     <footer className="bg-[#0d0d0d] relative pt-32 pb-12 overflow-hidden border-t border-border/5">
       {/* Subtle top border with teal gradient */}
@@ -24,14 +26,16 @@ const Footer = () => {
               <span className="text-foreground">Den</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed max-w-xs">
-              LenDen <T>is Your Deshi Accountant. Automatic transaction logging for Bangladesh.</T>
+              {language === 'en' 
+                ? "LenDen is Your Deshi Accountant. Automatic transaction logging for Bangladesh."
+                : "LenDen হলো আপনার দেশি অ্যাকাউন্ট্যান্ট। বাংলাদেশের জন্য স্বয়ংক্রিয় লেনদেন লগিং।"}
             </p>
           </div>
 
           {/* Legal Links Column */}
           <div className="text-center md:text-right flex flex-col items-center md:items-end">
             <h4 className="font-display text-xs font-bold text-primary mb-5 uppercase tracking-widest">
-              <T>Legal</T>
+              {language === 'en' ? "Legal" : "আইনি"}
             </h4>
             <ul className="flex flex-col gap-3">
               {footerLinks.Legal.map((link) => (
@@ -40,7 +44,7 @@ const Footer = () => {
                     href={link.href} 
                     className="text-xs text-muted-foreground hover:text-primary transition-all duration-300 relative group"
                   >
-                    <T>{link.label}</T>
+                    {link.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
@@ -52,7 +56,9 @@ const Footer = () => {
         {/* Divider and Copyright */}
         <div className="border-t border-white/5 pt-10">
           <p className="text-xs text-muted-foreground text-center tracking-wide opacity-60">
-            © 2026 LenDen. <T>All rights reserved.</T>
+            {language === 'en' 
+              ? "© 2026 LenDen. All rights reserved." 
+              : "© ২০২৬ LenDen। সর্বস্বত্ব সংরক্ষিত।"}
           </p>
         </div>
       </div>

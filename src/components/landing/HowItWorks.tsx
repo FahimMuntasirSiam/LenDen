@@ -1,30 +1,37 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Smartphone, Filter, LayoutDashboard } from "lucide-react";
 import { useRef } from "react";
-import { T } from "@/lib/i18n";
+import { useLanguageStore, T } from "@/lib/i18n";
 
-const steps = [
+const steps = (lang: string) => [
   {
     icon: Smartphone,
     step: "01",
-    title: "Transaction Arrives",
-    description: <><T>SMS received on your phone — from bKash, Nagad, Rocket, or your bank.</T> LenDen <T>runs silently in the background on your Android phone.</T></>,
+    title: lang === 'en' ? "Connect Your SMS" : "আপনার SMS সংযুক্ত করুন",
+    description: lang === 'en' 
+      ? "Let us read your transaction SMS to capture data. LenDen runs silently in the background on your Android phone."
+      : "ডেটা ক্যাপচার করতে আপনার লেনদেনের SMS পড়ার অনুমতি দিন। LenDen আপনার অ্যান্ড্রয়েড ফোনে নীরবে কাজ করে।",
   },
   {
     icon: Filter,
     step: "02",
-    title: "SmartFilter Runs",
-    description: <><T>Personal & OTP messages are blocked immediately. Only financial transactions pass through.</T> LenDen <T>never sees your private messages.</T></>,
+    title: lang === 'en' ? "Automated Processing" : "স্বয়ংক্রিয় প্রক্রিয়াকরণ",
+    description: lang === 'en'
+      ? "Our AI categorizes and logs every transaction in real-time. Personal & OTP messages are blocked immediately."
+      : "আমাদের AI রিয়েল-টাইমে প্রতিটি লেনদেন বিভাগ অনুযায়ী সাজিয়ে লগ করে। ব্যক্তিগত ও OTP মেসেজগুলো সাথে সাথে ব্লক করে দেওয়া হয়।",
   },
   {
     icon: LayoutDashboard,
     step: "03",
-    title: "Dashboard Updates",
-    description: <><T>Clean, organised record ready instantly. Sorted, categorised, and exportable. By the time your accountant opens the dashboard, everything is there.</T></>,
+    title: lang === 'en' ? "View Dashboard" : "ড্যাশবোর্ড দেখুন",
+    description: lang === 'en'
+      ? "Access your comprehensive financial dashboard anytime. Clean, organised record ready instantly."
+      : "যেকোনো সময় আপনার সম্পূর্ণ আর্থিক ড্যাশবোর্ড দেখুন। পরিচ্ছন্ন ও সুশৃঙ্খল রেকর্ড সাথে সাথেই তৈরি হয়ে যায়।",
   },
 ];
 
 const HowItWorks = () => {
+  const { language } = useLanguageStore();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -42,14 +49,20 @@ const HowItWorks = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>How</T> LenDen <T>Works</T></span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
-            <T>It Happens in</T>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">
+            {language === 'en' ? "How LenDen Works" : "LenDen যেভাবে কাজ করে"}
+          </span>
+          <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4 leading-snug md:leading-normal">
+            {language === 'en' ? "It Happens in" : "এটি ঘটে মাত্র"}
             <br />
-            <span className="gradient-text"><T>Three Simple Steps</T></span>
+            <span className="gradient-text">
+              {language === 'en' ? "Three Simple Steps" : "তিনটি সহজ ধাপে"}
+            </span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            LenDen <T>runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds.</T>
+            {language === 'en' 
+              ? "LenDen runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds."
+              : "LenDen আপনার অ্যান্ড্রয়েড ফোনে নীরবে কাজ করে। যখনই কোনো লেনদেনের SMS আসে, এটি স্বয়ংক্রিয়ভাবে ক্যাপচার, বিশ্লেষণ এবং কয়েক সেকেন্ডের মধ্যে আপনার ড্যাশবোর্ডে লগ হয়ে যায়।"}
           </p>
         </motion.div>
 
@@ -62,7 +75,7 @@ const HowItWorks = () => {
             />
           </div>
 
-          {steps.map((step, i) => (
+          {steps(language).map((step, i) => (
             <motion.div
               key={step.step}
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -85,7 +98,7 @@ const HowItWorks = () => {
               </motion.div>
               <span className="font-display text-xs font-bold text-primary tracking-widest">{step.step}</span>
               <h3 className="font-display text-xl font-semibold mt-2 mb-3 text-foreground">
-                <T>{step.title}</T>
+                {step.title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">
                 {step.description}

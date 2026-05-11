@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { GetStartedDialog } from "./GetStartedDialog";
-import { T } from "@/lib/i18n";
+import { useLanguageStore } from "@/lib/i18n";
 
 const CTASection = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -19,16 +21,20 @@ const CTASection = () => {
           className="glass-card rounded-2xl p-10 md:p-16 text-center neon-glow"
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            <T>Ready to Stop</T>
+            {language === 'en' ? "Ready to Stop" : "ম্যানুয়াল হিসাব রাখা"}
             <br />
-            <span className="gradient-text"><T>Manual Logging?</T></span>
+            <span className="gradient-text">
+              {language === 'en' ? "Manual Logging?" : "বন্ধ করতে প্রস্তুত?"}
+            </span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            <T>Join Bangladeshi businesses already using</T> LenDen. <T>Start your free trial today — no credit card required.</T>
+            {language === 'en' 
+              ? "Join Bangladeshi businesses already using LenDen. Start your free trial today — no credit card required."
+              : "বাংলাদেশের যেসব ব্যবসা ইতিমধ্যে LenDen ব্যবহার করছে তাদের সাথে যোগ দিন। আজই বিনামূল্যে ট্রায়াল শুরু করুন — কোনো ক্রেডিট কার্ড লাগবে না।"}
           </p>
           <GetStartedDialog>
             <Button size="lg" className="neon-glow font-display font-semibold text-base px-10 gap-2">
-              <T>Get Started — It's Simple</T> <ArrowRight size={18} />
+              {language === 'en' ? "Get Started — It's Simple" : "শুরু করুন — এটা সহজ"} <ArrowRight size={18} />
             </Button>
           </GetStartedDialog>
         </motion.div>

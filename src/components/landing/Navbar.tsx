@@ -142,7 +142,7 @@ const Navbar = () => {
                 }}
                 className="font-display font-medium w-full mt-2"
               >
-                {language === 'en' ? 'Switch to Bangla (BN)' : 'Switch to English (EN)'}
+                {language === 'en' ? 'Switch to Bangla (BN)' : 'বাংলায় দেখুন (BN)'}
               </Button>
             </div>
 
