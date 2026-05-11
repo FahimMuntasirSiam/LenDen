@@ -13,12 +13,12 @@ import FAQ from "../components/landing/FAQ";
 import CTASection from "../components/landing/CTASection";
 import Footer from "../components/landing/Footer";
 
-// Main landing page component
-const Index = () => {
+const Bangla = () => {
   const { setLanguage } = useLanguageStore();
 
   useEffect(() => {
-    setLanguage('en');
+    // Set language to Bangla when this page is visited
+    setLanguage('bn');
   }, [setLanguage]);
 
   return (
@@ -39,4 +39,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Bangla;

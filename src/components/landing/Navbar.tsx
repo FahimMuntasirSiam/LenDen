@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLanguageStore, T } from "@/lib/i18n";
 
 const navLinks = [
@@ -16,6 +16,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { language, setLanguage } = useLanguageStore();
 
   useEffect(() => {
@@ -72,7 +73,15 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
+            onClick={() => {
+              if (language === 'en') {
+                setLanguage('bn');
+                navigate('/bn');
+              } else {
+                setLanguage('en');
+                navigate('/');
+              }
+            }}
             className="font-display font-medium px-3 ml-2 border border-border/50"
           >
             {language === 'en' ? 'BN' : 'EN'}
@@ -122,7 +131,16 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
+                onClick={() => {
+                  setMobileOpen(false);
+                  if (language === 'en') {
+                    setLanguage('bn');
+                    navigate('/bn');
+                  } else {
+                    setLanguage('en');
+                    navigate('/');
+                  }
+                }}
                 className="font-display font-medium w-full mt-2"
               >
                 {language === 'en' ? 'Switch to Bangla (BN)' : 'Switch to English (EN)'}
