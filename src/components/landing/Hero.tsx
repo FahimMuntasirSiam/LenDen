@@ -15,7 +15,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Background effects */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] animate-pulse-glow" />
@@ -29,13 +29,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="flex items-center justify-center mb-6"
+            className="flex items-center justify-center mb-4"
           >
             <img 
-              src="/lenden-crop.png" 
+              src="/lenden-hero.png" 
               alt="LenDen" 
               className="w-full max-w-[400px] sm:max-w-[600px] md:max-w-[750px] h-auto object-contain" 
-              style={{ filter: "invert(1) hue-rotate(180deg)" }}
             />
           </motion.div>
 
@@ -43,7 +42,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12"
           >
             <T>Records all your transactions of all type in one platform for your business and personal use — designed for Bangladesh.</T>
           </motion.p>
@@ -106,7 +105,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-8 text-sm text-muted-foreground"
+            className="mt-12 text-sm text-muted-foreground"
           >
             <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium">LenDen <T>does it better.</T></span>
           </motion.p>
