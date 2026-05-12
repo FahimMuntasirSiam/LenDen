@@ -4,6 +4,7 @@ import { Check, X, ArrowRight, Zap, Building2, Rocket } from "lucide-react";
 import Navbar from "../components/landing/Navbar";
 import Footer from "../components/landing/Footer";
 import { useRef } from "react";
+import { BrandedLenDen } from "../components/landing/BrandedLenDen";
 
 const plans = [
   {
@@ -162,7 +163,7 @@ const PricingPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Pay only a fraction of what you'd need to pay your employees. LenDen does the work of an entire accounting team.
+            Pay only a fraction of what you'd need to pay your employees. <BrandedLenDen /> does the work of an entire accounting team.
           </motion.p>
         </div>
       </motion.div>
@@ -276,10 +277,10 @@ const PricingPage = () => {
             <div className="grid grid-cols-3 gap-0 border-b border-border/50">
               <div className="p-5 md:p-6" />
               <div className="p-5 md:p-6 text-center border-l border-border/50">
-                <p className="font-display text-sm md:text-base font-semibold text-destructive">Without LenDen</p>
+                <p className="font-display text-sm md:text-base font-semibold text-foreground">Without <BrandedLenDen /></p>
               </div>
               <div className="p-5 md:p-6 text-center border-l border-border/50 gradient-primary">
-                <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">With LenDen</p>
+                <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">With <BrandedLenDen /></p>
               </div>
             </div>
 
@@ -296,7 +297,7 @@ const PricingPage = () => {
                   <p className="text-sm md:text-base text-foreground font-medium">{row.metric}</p>
                 </div>
                 <div className="p-4 md:p-5 flex items-center justify-center border-l border-border/30">
-                  <p className="text-sm md:text-base text-destructive/80 font-medium">{row.without}</p>
+                  <p className="text-sm md:text-base text-primary font-medium">{row.without}</p>
                 </div>
                 <div className="p-4 md:p-5 flex items-center justify-center border-l border-border/30 bg-primary/5">
                   <p className="text-sm md:text-base text-primary font-bold">{row.with}</p>
@@ -312,7 +313,7 @@ const PricingPage = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center mt-10 text-muted-foreground max-w-2xl mx-auto italic text-sm md:text-base"
           >
-            "That's half a working week your employee spends copying SMS messages into a spreadsheet. <span className="text-primary font-medium not-italic">LenDen does it the moment each transaction arrives.</span>"
+            "That's half a working week your employee spends copying SMS messages into a spreadsheet. <span className="text-primary font-medium not-italic"><BrandedLenDen /> does it the moment each transaction arrives.</span>"
           </motion.p>
         </div>
       </section>
@@ -372,7 +373,7 @@ const PricingPage = () => {
               <span className="gradient-text">Saving Time?</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-              Start your 14-day free trial today. No credit card required. See the difference LenDen makes for your business.
+              Start your 14-day free trial today. No credit card required. See the difference <BrandedLenDen /> makes for your business.
             </p>
             <Button size="lg" className="neon-glow font-display font-semibold text-base px-10 gap-2">
               Get Started Free <ArrowRight size={18} />

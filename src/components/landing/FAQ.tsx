@@ -6,23 +6,24 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const faqs = [
   {
     q: "What if my device or phone is offline?",
-    a: <>LenDen <T>will sync the sms when your device or internet comes back online.</T></>,
+    a: <><BrandedLenDen /> <T>will sync the sms when your device or internet comes back online.</T></>,
   },
   {
     q: "Can I choose to export filtered data like only bKash or only bank transactions?",
-    a: <><T>Yes,</T> LenDen <T>allows filtered CSV export of transactions for each payment methods and custom dates.</T></>,
+    a: <><T>Yes,</T> <BrandedLenDen /> <T>allows filtered CSV export of transactions for each payment methods and custom dates.</T></>,
   },
   {
     q: "Why do I need to upload my bKash statement?",
-    a: <><T>Sent money SMS doesn't appear except in statements.</T> LenDen <T>can parse the statement and import all the transactions into the dashboard.</T></>,
+    a: <><T>Sent money SMS doesn't appear except in statements.</T> <BrandedLenDen /> <T>can parse the statement and import all the transactions into the dashboard.</T></>,
   },
   {
     q: "For how long does LenDen keep my data?",
-    a: <><T>Clients can request data of their business for up to 7 months in</T> LenDen <T>before the log is cleared.</T></>,
+    a: <><T>Clients can request data of their business for up to 7 months in</T> <BrandedLenDen /> <T>before the log is cleared.</T></>,
   },
 ];
 

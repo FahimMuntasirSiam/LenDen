@@ -2,19 +2,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Smartphone, Filter, LayoutDashboard } from "lucide-react";
 import { useRef } from "react";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const steps = [
   {
     icon: Smartphone,
     step: "01",
     title: "Transaction Arrives",
-    description: <><T>SMS received on your phone — from bKash, Nagad, Rocket, or your bank.</T> LenDen <T>runs silently in the background on your Android phone.</T></>,
+    description: <><T>SMS received on your phone — from bKash, Nagad, Rocket, or your bank.</T> <BrandedLenDen /> <T>runs silently in the background on your Android phone.</T></>,
   },
   {
     icon: Filter,
     step: "02",
     title: "SmartFilter Runs",
-    description: <><T>Personal & OTP messages are blocked immediately. Only financial transactions pass through.</T> LenDen <T>never sees your private messages.</T></>,
+    description: <><T>Personal & OTP messages are blocked immediately. Only financial transactions pass through.</T> <BrandedLenDen /> <T>never sees your private messages.</T></>,
   },
   {
     icon: LayoutDashboard,
@@ -42,14 +43,14 @@ const HowItWorks = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>How</T> LenDen <T>Works</T></span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>How</T> <BrandedLenDen /> <T>Works</T></span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
             <T>It Happens in</T>
             <br />
             <span className="gradient-text"><T>Three Simple Steps</T></span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            LenDen <T>runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds.</T>
+            <BrandedLenDen /> <T>runs silently in the background on your Android phone. The moment a transaction SMS arrives, it's automatically captured, parsed, and logged to your dashboard in seconds.</T>
           </p>
         </motion.div>
 

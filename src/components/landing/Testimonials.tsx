@@ -1,6 +1,8 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const testimonials = [
   {
@@ -59,7 +61,12 @@ const Testimonials = () => {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6 italic">
-                "{t.quote}"
+                "{t.quote.split("LenDen").map((part, index, array) => (
+                  <React.Fragment key={index}>
+                    {part}
+                    {index < array.length - 1 && <BrandedLenDen />}
+                  </React.Fragment>
+                ))}"
               </p>
               <div>
                 <p className="font-display font-semibold text-foreground">{t.name}</p>

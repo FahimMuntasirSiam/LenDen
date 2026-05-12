@@ -9,12 +9,13 @@ import {
 } from "lucide-react";
 import { useRef } from "react";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const features = [
   {
     icon: Smartphone,
     title: "Auto SMS Capture",
-    description: <>LenDen <T>runs silently on your Android phone. The moment a transaction SMS arrives — bKash, Nagad, Rocket, or your bank — it's automatically captured and logged.</T></>,
+    description: <><BrandedLenDen /> <T>runs silently on your Android phone. The moment a transaction SMS arrives — bKash, Nagad, Rocket, or your bank — it's automatically captured and logged.</T></>,
   },
   {
     icon: Filter,
@@ -39,7 +40,7 @@ const features = [
   {
     icon: Lock,
     title: "Privacy First",
-    description: <>LenDen <T>never sees your personal messages. Only financial transactions get through SmartFilter — no privacy risk whatsoever.</T></>,
+    description: <><BrandedLenDen /> <T>never sees your personal messages. Only financial transactions get through SmartFilter — no privacy risk whatsoever.</T></>,
   },
 ];
 
@@ -73,14 +74,14 @@ const Features = () => {
           style={{ y: headingY, opacity: headingOpacity }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>Why</T> LenDen?</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>Why</T> <BrandedLenDen />?</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">
             <T>Simplify Your</T>
             <br />
             <span className="gradient-text"><T>Financial Logging</T></span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            LenDen <T>simplifies logging financial records and makes it easier for you to calculate and record for your business without the human error. Logging transactions meant days of manual work, a paid assistant, and still missing entries. Now it happens automatically.</T>
+            <BrandedLenDen /> <T>simplifies logging financial records and makes it easier for you to calculate and record for your business without the human error. Logging transactions meant days of manual work, a paid assistant, and still missing entries. Now it happens automatically.</T>
           </p>
         </motion.div>
 

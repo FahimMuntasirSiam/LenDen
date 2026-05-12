@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { useRef, useEffect } from "react";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const StatementsSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -33,7 +34,7 @@ const StatementsSection = () => {
             className="text-center mb-16"
           >
             <span className="text-primary text-sm font-medium tracking-wider uppercase"><T>The Complete View</T></span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold mt-3 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-primary/80">
+            <h2 className="font-display text-4xl md:text-6xl font-bold mt-3 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-primary/80">
               <T>The Full Picture,</T> <br />
               <span className="gradient-text"><T>Finally Revealed</T></span>
             </h2>
@@ -54,7 +55,7 @@ const StatementsSection = () => {
               <div className="p-1 rounded-2xl bg-gradient-to-br from-primary/30 to-purple-500/30">
                 <div className="bg-background/80 backdrop-blur-xl p-8 rounded-[14px] border border-white/5">
                   <p className="text-lg md:text-xl text-primary leading-relaxed italic drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
-                    "LenDen <T>changes that. Import your official bKash or Nagad statement and every outgoing payment instantly merges with your SMS records.</T>"
+                    "<BrandedLenDen /> <T>changes that. Import your official bKash or Nagad statement and every outgoing payment instantly merges with your SMS records.</T>"
                   </p>
                 </div>
               </div>

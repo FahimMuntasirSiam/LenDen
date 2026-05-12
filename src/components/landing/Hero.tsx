@@ -4,6 +4,7 @@ import { ArrowRight, Smartphone, Shield, FileSpreadsheet } from "lucide-react";
 import { useRef } from "react";
 import { GetStartedDialog } from "./GetStartedDialog";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,10 +33,9 @@ const Hero = () => {
             className="flex items-center justify-center mb-6"
           >
             <img 
-              src="/lenden-crop.png" 
+              src="/hero.png" 
               alt="LenDen" 
               className="w-full max-w-[400px] sm:max-w-[600px] md:max-w-[750px] h-auto object-contain" 
-              style={{ filter: "invert(1) hue-rotate(180deg)" }}
             />
           </motion.div>
 
@@ -72,7 +72,7 @@ const Hero = () => {
               {
                 icon: Smartphone,
                 title: "Auto-Capture",
-                desc: <>LenDen <T>keeps record of your transactions automatically</T></>,
+                desc: <><BrandedLenDen /> <T>keeps record of your transactions automatically</T></>,
               },
               {
                 icon: Shield,
@@ -108,7 +108,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-8 text-sm text-muted-foreground"
           >
-            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium">LenDen <T>does it better.</T></span>
+            <T>Pay only a fraction of what you'd pay employees — </T><span className="text-primary font-medium"><BrandedLenDen /> <T>does it better.</T></span>
           </motion.p>
         </div>
       </motion.div>

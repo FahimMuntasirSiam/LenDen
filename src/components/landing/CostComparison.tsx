@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const comparisonData = [
   { metric: "Time logging transactions", without: "20 hours/month", with: "0 hours" },
@@ -40,10 +41,10 @@ const CostComparison = () => {
           <div className="grid grid-cols-3 gap-0 border-b border-border/50">
             <div className="p-4 md:p-6" />
             <div className="p-4 md:p-6 text-center border-l border-border/50">
-              <p className="font-display text-sm md:text-base font-semibold text-destructive"><T>Without</T> LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-foreground"><T>Without</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></p>
             </div>
             <div className="p-4 md:p-6 text-center border-l border-border/50 gradient-primary">
-              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground"><T>With</T> LenDen</p>
+              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground"><T>With</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></p>
             </div>
           </div>
 
@@ -61,7 +62,7 @@ const CostComparison = () => {
                 <p className="text-sm md:text-base text-foreground font-medium"><T>{row.metric}</T></p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30">
-                <p className="text-sm md:text-base text-destructive/80 font-medium"><T>{row.without}</T></p>
+                <p className="text-sm md:text-base text-primary font-medium"><T>{row.without}</T></p>
               </div>
               <div className="p-4 md:p-6 flex items-center justify-center border-l border-border/30 bg-primary/5">
                 <p className="text-sm md:text-base text-primary font-bold"><T>{row.with}</T></p>
@@ -77,7 +78,7 @@ const CostComparison = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-10 text-muted-foreground max-w-2xl mx-auto italic text-sm md:text-base"
         >
-          "<T>That's half a working week your employee spends copying SMS messages into a spreadsheet.</T> <span className="text-primary font-medium not-italic">LenDen <T>does it the moment each transaction arrives.</T></span>"
+          "<T>That's half a working week your employee spends copying SMS messages into a spreadsheet.</T> <span className="text-primary font-medium not-italic"><BrandedLenDen /> <T>does it the moment each transaction arrives.</T></span>"
         </motion.p>
       </div>
     </section>

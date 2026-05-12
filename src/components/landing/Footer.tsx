@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { T } from "@/lib/i18n";
+import { BrandedLenDen } from "./BrandedLenDen";
 
 const footerLinks = {
   Legal: [
@@ -24,7 +25,7 @@ const Footer = () => {
               <span className="text-foreground">Den</span>
             </Link>
             <p className="text-sm text-muted-foreground mt-4 leading-relaxed max-w-xs">
-              LenDen <T>is Your Deshi Accountant. Automatic transaction logging for Bangladesh.</T>
+              <BrandedLenDen /> <T>is Your Deshi Accountant. Automatic transaction logging for Bangladesh.</T>
             </p>
           </div>
 
@@ -52,7 +53,7 @@ const Footer = () => {
         {/* Divider and Copyright */}
         <div className="border-t border-white/5 pt-10">
           <p className="text-xs text-muted-foreground text-center tracking-wide opacity-60">
-            © 2026 LenDen. <T>All rights reserved.</T>
+            © 2026 <BrandedLenDen />. <T>All rights reserved.</T>
           </p>
         </div>
       </div>

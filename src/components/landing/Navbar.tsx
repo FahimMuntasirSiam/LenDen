@@ -39,10 +39,9 @@ const Navbar = () => {
       <div className="container flex items-center justify-between h-16 px-4 md:px-8">
         <Link to="/" className="flex items-center shrink-0">
           <img 
-            src="/lenden-crop.png" 
+            src="/navbar.png" 
             alt="LenDen" 
             className="h-5 md:h-6 w-auto object-contain" 
-            style={{ filter: "invert(1) hue-rotate(180deg)" }}
           />
         </Link>
 
