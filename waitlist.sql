@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS public."Waitlist" (
     phone TEXT NOT NULL,
     business_type TEXT NOT NULL,
     wallets TEXT NOT NULL,
-    monthly_transactions INTEGER NOT NULL
+    monthly_transactions INTEGER NOT NULL,
+    devices INTEGER DEFAULT 1 NOT NULL
 );
 
 -- Enable Row Level Security

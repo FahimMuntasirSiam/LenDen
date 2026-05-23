@@ -61,6 +61,7 @@ export function PreRegistrationForm({ onSuccess }: { onSuccess: () => void }) {
             business_type: `Location: ${formData.location}`,
             wallets: [...formData.services, formData.other_service].filter(Boolean).join(", "),
             monthly_transactions: parseInt(formData.monthly_transactions.replace(/[^0-9]/g, "")) || 0,
+            devices: parseInt(formData.devices) || 1,
           },
         ]);
 
