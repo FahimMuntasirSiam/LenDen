@@ -10,7 +10,12 @@ interface LanguageState {
 
 export const useLanguageStore = create<LanguageState>((set) => ({
   language: 'en',
-  setLanguage: (lang) => set({ language: lang }),
+  setLanguage: (lang) => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('lang', lang);
+    }
+    set({ language: lang });
+  },
 }));
 
 export const translations = {

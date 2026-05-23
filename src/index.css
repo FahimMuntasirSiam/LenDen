@@ -124,3 +124,17 @@
     color: #e52b2b;
   }
 }
+
+/* Bangla-specific typography adjustments to prevent taller script overlap */
+[lang="bn"] h1,
+[lang="bn"] h2,
+[lang="bn"] h3 {
+  line-height: 1.4 !important;
+}
+
+[lang="bn"] p,
+[lang="bn"] li,
+[lang="bn"] span {
+  line-height: 1.8 !important;
+}
+

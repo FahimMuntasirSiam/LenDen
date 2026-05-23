@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { T } from "@/lib/i18n";
+import { T, useLanguageStore } from "@/lib/i18n";
 import { BrandedLenDen } from "./BrandedLenDen";
 
 const comparisonData = [
@@ -9,6 +9,8 @@ const comparisonData = [
 ];
 
 const CostComparison = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-24">
       <div className="container px-4 md:px-8">
@@ -41,10 +43,22 @@ const CostComparison = () => {
           <div className="grid grid-cols-3 gap-0 border-b border-border/50">
             <div className="p-4 md:p-6" />
             <div className="p-4 md:p-6 text-center border-l border-border/50">
-              <p className="font-display text-sm md:text-base font-semibold text-foreground"><T>Without</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></p>
+              <p className="font-display text-sm md:text-base font-semibold text-foreground">
+                {language === 'bn' ? (
+                  <><span className="lenden-len">Len</span><span className="lenden-den">Den</span> ছাড়া</>
+                ) : (
+                  <><T>Without</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></>
+                )}
+              </p>
             </div>
             <div className="p-4 md:p-6 text-center border-l border-border/50 gradient-primary">
-              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground"><T>With</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></p>
+              <p className="font-display text-sm md:text-base font-semibold text-primary-foreground">
+                {language === 'bn' ? (
+                  <><span className="lenden-len">Len</span><span className="lenden-den">Den</span> সহ</>
+                ) : (
+                  <><T>With</T> <span className="lenden-len">Len</span><span className="lenden-den">Den</span></>
+                )}
+              </p>
             </div>
           </div>
 
