@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { T } from "@/lib/i18n";
+import { T, useLanguageStore, translations } from "@/lib/i18n";
 import { BrandedLenDen } from "./BrandedLenDen";
 
 const testimonials = [
@@ -26,6 +26,8 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-24">
       <div className="container px-4 md:px-8">
@@ -45,35 +47,40 @@ const Testimonials = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 40, rotateY: 5 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: i * 0.15, type: "spring", stiffness: 80 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
-            >
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={16} className="fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 italic">
-                "{t.quote.split("LenDen").map((part, index, array) => (
-                  <React.Fragment key={index}>
-                    {part}
-                    {index < array.length - 1 && <BrandedLenDen />}
-                  </React.Fragment>
-                ))}"
-              </p>
-              <div>
-                <p className="font-display font-semibold text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.role}</p>
-              </div>
-            </motion.div>
-          ))}
+          {testimonials.map((t, i) => {
+            const translatedQuote = (translations[language] as any)[t.quote] || t.quote;
+            const translatedRole = (translations[language] as any)[t.role] || t.role;
+
+            return (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 40, rotateY: 5 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.15, type: "spring", stiffness: 80 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
+              >
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: t.rating }).map((_, j) => (
+                    <Star key={j} size={16} className="fill-primary text-primary" />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 italic">
+                  "{translatedQuote.split("LenDen").map((part: string, index: number, array: string[]) => (
+                    <React.Fragment key={index}>
+                      {part}
+                      {index < array.length - 1 && <BrandedLenDen />}
+                    </React.Fragment>
+                  ))}"
+                </p>
+                <div>
+                  <p className="font-display font-semibold text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{translatedRole}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

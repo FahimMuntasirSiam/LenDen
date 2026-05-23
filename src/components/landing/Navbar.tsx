@@ -55,7 +55,7 @@ const Navbar = () => {
                 onClick={() => handleNavClick(link.href)}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                {link.label}
+                <T>{link.label}</T>
               </a>
             ) : (
               <Link
@@ -105,7 +105,7 @@ const Navbar = () => {
                     onClick={() => handleNavClick(link.href)}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    <T>{link.label}</T>
                   </a>
                 ) : (
                   <Link
@@ -124,7 +124,7 @@ const Navbar = () => {
                 onClick={() => setLanguage(language === 'en' ? 'bn' : 'en')}
                 className="font-display font-medium w-full mt-2"
               >
-                {language === 'en' ? 'Switch to Bangla (BN)' : 'Switch to English (EN)'}
+                {language === 'en' ? <T>Switch to Bangla (BN)</T> : <T>Switch to English (EN)</T>}
               </Button>
             </div>
 
